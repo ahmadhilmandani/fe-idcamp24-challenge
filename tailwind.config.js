@@ -13,7 +13,7 @@ export default {
         "cust-grey-lightest": "#F6F6F6",
         "cust-orange": "#DD761C",
         "cust-orange-lighter": "#FFDAB9",
-        "cust-redish": "#E06994",
+        "cust-redish": "#C73659",
         "cust-redish-lighter": "#FCF0F5",
         "cust-blue": "#0B93DF",
         "cust-blue-lighter": "#E7F5FC",
