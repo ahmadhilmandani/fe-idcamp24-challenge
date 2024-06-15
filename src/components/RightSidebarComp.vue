@@ -1,13 +1,14 @@
 <template>
-  <aside class="w-[240pt] transition-all flex-initial p-4 border-r border-cust-grey-lighter flex flex-col justify-between" 
-  :class="storeOpenRsidebar.openRSidebar ? 'block' : 'hidden'">
+  <aside
+    class="w-[240pt] transition-all flex-initial p-4 border-r border-cust-grey-lighter flex flex-col justify-between"
+    :class="storeOpenRsidebar.openRSidebar ? 'block' : 'hidden'">
     <div>
       <h1 class="font-bold text-2xl mb-6">
         CA<span class="font-bold text-2xl text-cust-orange">MABA</span>
       </h1>
-  
+
       <ul>
-  
+
         <li
           class="flex gap-2 items-center mb-3 pl-[31px] py-2 pr-2 rounded-xl hover:bg-cust-grey-lightest hover:cursor-pointer transition-all">
           <span class="material-symbols-outlined">
@@ -17,7 +18,7 @@
             Dashboard
           </RouterLink>
         </li>
-  
+
         <li
           class="flex gap-2 items-center mb-3 pl-[31px] py-2 pr-2 rounded-xl hover:bg-cust-grey-lightest hover:cursor-pointer transition-all">
           <span class="material-symbols-outlined">
@@ -27,7 +28,7 @@
             TryOut
           </RouterLink>
         </li>
-  
+
         <li @click="isTestJurusanClicked = !isTestJurusanClicked"
           class="flex gap-2 items-center mb-3 py-2 pr-2 rounded-xl hover:bg-cust-grey-lightest hover:cursor-pointer transition-all">
           <span class="material-symbols-outlined transition-all" :class="isTestJurusanClicked && 'rotate-90'">
@@ -40,7 +41,7 @@
             Test Jurusan
           </div>
         </li>
-  
+
         <!-- only show if test jurusan is clicked -->
         <li v-if="isTestJurusanClicked">
           <RouterLink
@@ -53,7 +54,7 @@
             </div>
           </RouterLink>
         </li>
-  
+
         <li v-if="isTestJurusanClicked">
           <RouterLink
             class="flex w-full gap-2 items-center mb-3 pl-[31px] py-2 pr-2 rounded-xl hover:bg-cust-grey-lightest hover:cursor-pointer transition-all">
@@ -65,11 +66,11 @@
             </div>
           </RouterLink>
         </li>
-  
+
       </ul>
     </div>
 
-    <ButtonComp type="danger">
+    <ButtonComp :handleClick="()=>{storeLogout.openModal()}" styleProp="fill" typeProp="danger">
       Keluar
     </ButtonComp>
 
@@ -80,9 +81,12 @@
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import ButtonComp from './global/ButtonComp.vue'
+import { useOpenRSidebar } from '@/stores/openRSidebar'
+import { useLogout } from '@/stores/logout'
 
 const isTestJurusanClicked = ref(false)
-import { useOpenRSidebar } from '@/stores/openRSidebar'
 const storeOpenRsidebar = useOpenRSidebar()
+const storeLogout = useLogout()
+
 
 </script>
