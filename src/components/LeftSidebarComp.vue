@@ -1,5 +1,5 @@
 <template>
-  <aside class="w-[280pt] p-4 border-l border-cust-grey-lighter">
+  <aside class="w-[280pt] p-4 border-l border-cust-grey-lighter" :class="storeOpenLsidebar.openLSidebar ? 'block' : 'hidden'">
     <h2 class="font-bold mb-4">
       Profil Saya
     </h2>
@@ -66,4 +66,8 @@
 <script setup>
 import saya from '../assets/saya1.png'
 import its from '../assets/its.png'
+
+import { useOpenLSidebar } from '@/stores/openLSidebar';
+const storeOpenLsidebar = useOpenLSidebar()
+
 </script>

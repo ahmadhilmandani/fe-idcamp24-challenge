@@ -59,7 +59,13 @@
             <div class="flex gap-4 w-[500px]">
                 <div class="w-[35%] bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4">
                   <div class="text-left mb-2">Tanggal SNBT/UTBK</div>
-                  <h2 class="font-bold text-xl">21 Mei 2025</h2>
+                  <div class="flex gap-2">
+                    <h2 class="font-bold text-5xl text-cust-orange">21</h2>
+                    <div>
+                      <div class="font-bold text-cust-blue mb-1">Mei</div>
+                      <div class="font-bold text-cust-blue">2025</div>
+                    </div>
+                  </div>
                 </div>
               <div class="w-[75%] bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4 ">
                 <h2 class="text-center mb-2">Hitung mundur</h2>

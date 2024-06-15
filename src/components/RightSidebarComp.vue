@@ -1,5 +1,6 @@
 <template>
-  <aside class="w-[240pt] flex-initial p-4 border-r border-cust-grey-lighter flex flex-col justify-between">
+  <aside class="w-[240pt] transition-all flex-initial p-4 border-r border-cust-grey-lighter flex flex-col justify-between" 
+  :class="storeOpenRsidebar.openRSidebar ? 'block' : 'hidden'">
     <div>
       <h1 class="font-bold text-2xl mb-6">
         CA<span class="font-bold text-2xl text-cust-orange">MABA</span>
@@ -81,5 +82,7 @@ import { RouterLink } from 'vue-router'
 import ButtonComp from './global/ButtonComp.vue'
 
 const isTestJurusanClicked = ref(false)
+import { useOpenRSidebar } from '@/stores/openRSidebar'
+const storeOpenRsidebar = useOpenRSidebar()
 
 </script>
