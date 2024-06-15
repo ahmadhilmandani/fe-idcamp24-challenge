@@ -82,7 +82,7 @@ import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import ButtonComp from './global/ButtonComp.vue'
 import { useOpenRSidebar } from '@/stores/openRSidebar'
-import { useLogout } from '@/stores/logout'
+import { useLogout } from '@/stores/logoutModal'
 
 const isTestJurusanClicked = ref(false)
 const storeOpenRsidebar = useOpenRSidebar()

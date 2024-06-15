@@ -158,7 +158,7 @@ import NavbarComp from '@/components/NavbarComp.vue'
 import BarChartComp from '@/components/global/BarChartComp.vue'
 import ButtonComp from '@/components/global/ButtonComp.vue'
 import ModalComp from '@/components/global/ModalComp.vue'
-import { useLogout } from '@/stores/logout'
+import { useLogout } from '@/stores/logoutModal'
 
 
 const isTestJurusanClicked = ref(false)
