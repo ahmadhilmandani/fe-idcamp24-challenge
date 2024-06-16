@@ -2,9 +2,6 @@
   <div class="w-full min-h-screen flex justify-between relative">
     <ModalComp v-if="storeLogout.modalLogoutOpen">
       <h1 class="font-semibold text-center text-2xl">Yakin nih mau Logout?</h1>
-      <!-- <span class="w-[120px] p-4 aspect-square material-symbols-outlined text-center text-8xl rounded-full bg-cust-redish-lighter text-cust-redish mx-auto">
-        logout
-      </span> -->
       <div class="mt-8 mb-3">
       <ButtonComp :handleClick="storeLogout.closedModal" styleProp="fill" typeProp="secondary">
         Ga jadi deh...
@@ -15,7 +12,7 @@
         </ButtonComp>
     </ModalComp>
 
-    <RightSidebarComp />
+    <!-- <RightSidebarComp /> -->
 
     <div class="w-full flex-initial">
       <NavbarComp />
@@ -37,7 +34,7 @@
               </span>
             </ButtonComp>
             <div v-if="isButtonTambahTryoutClicked"
-              class="w-60 bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4 absolute top-[120%] right-0">
+              class="w-60 bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4 absolute top-[120%] right-0 shadow-lg">
               <RouterLink to="/1" class="mb-4 block hover:font-bold transition-all">
                 Latihan di Web <span class="font-bold">CA<span class="font-bold text-cust-orange">MABA</span></span>
               </RouterLink>
@@ -142,7 +139,7 @@
 
     </div>
 
-    <LeftSidebarComp />
+    <!-- <LeftSidebarComp /> -->
 
   </div>
 </template>
@@ -151,8 +148,7 @@
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 
-import RightSidebarComp from '../components/RightSidebarComp.vue'
-import LeftSidebarComp from '../components/LeftSidebarComp.vue'
+
 import CardComp from '@/components/Dashboard/CardComp.vue'
 import NavbarComp from '@/components/NavbarComp.vue'
 import BarChartComp from '@/components/global/BarChartComp.vue'
@@ -161,9 +157,10 @@ import ModalComp from '@/components/global/ModalComp.vue'
 import { useLogout } from '@/stores/logoutModal'
 
 
-const isTestJurusanClicked = ref(false)
 const date = ref(new Date())
-const isButtonTambahTryoutClicked = ref(false)
 const storeLogout = useLogout()
+
+const isTestJurusanClicked = ref(false)
+const isButtonTambahTryoutClicked = ref(false)
 
 </script>
