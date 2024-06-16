@@ -28,9 +28,6 @@
 </template>
 
 <script setup>
-const emit = defineEmits(['response'])
-
-emit('response', 'hello from child')
 defineProps(
   {
     styleProp: {

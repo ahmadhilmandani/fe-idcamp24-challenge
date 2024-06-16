@@ -111,12 +111,11 @@
                 500
               </td>
               <td class="px-3 py-5 text-gray-700 whitespace-nowrap">
-                <span
-                  class="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">
-                  Delivered
-                </span>
+                <BadgeComp styleProp="fill" typeProp="success">
+                  • Selesai
+                </BadgeComp>
               </td>
-              <td class="px-3 py-5 text-gray-700 whitespace-nowrap">
+              <td class="px-3 py-5 text-gray-700 whitespace-nowrap hover:cursor-pointer">
                 <span class="material-symbols-outlined text-[14px]">
                   more_vert
                 </span>
@@ -135,6 +134,7 @@ import { ref } from 'vue'
 import NavbarComp from '@/components/NavbarComp.vue'
 import ButtonComp from '@/components/global/ButtonComp.vue'
 import ModalComp from '@/components/global/ModalComp.vue'
+import BadgeComp from '@/components/global/BadgeComp.vue'
 import { useLogout } from '@/stores/logoutModal'
 
 const isButtonTambahTryoutClicked = ref(false)
