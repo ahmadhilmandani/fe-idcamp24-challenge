@@ -2,4 +2,4 @@
   <div>
     tambah
   </div>
-  </template>
+</template>

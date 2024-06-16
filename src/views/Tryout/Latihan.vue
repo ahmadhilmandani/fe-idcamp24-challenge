@@ -2,4 +2,4 @@
   <div>
     latihan
   </div>
-  </template>
+</template>

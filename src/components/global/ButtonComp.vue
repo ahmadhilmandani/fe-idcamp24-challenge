@@ -22,7 +22,7 @@
   </button>
 
   <button @click="handleClick" v-else-if="styleProp === 'borderless'"
-    class="text-cust-black w-full text-center p-2 font-semibold hover:font-bold transition-all">
+    class="flex justify-center items-center rounded gap-2 text-cust-black w-full text-center p-2 font-semibold hover:font-bold transition-all">
     <slot></slot>
   </button>
 </template>

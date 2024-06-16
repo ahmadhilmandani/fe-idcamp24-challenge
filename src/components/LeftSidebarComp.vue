@@ -1,5 +1,6 @@
 <template>
-  <aside class="w-[280pt] p-4 border-l border-cust-grey-lighter" :class="storeOpenLsidebar.openLSidebar ? 'block' : 'hidden'">
+  <aside class="w-[280pt] p-4 border-l border-cust-grey-lighter"
+    :class="storeOpenLsidebar.openLSidebar ? 'block' : 'hidden'">
     <h2 class="font-bold mb-4">
       Profil Saya
     </h2>
