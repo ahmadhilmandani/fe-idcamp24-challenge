@@ -1,8 +1,8 @@
 <template>
   <div class="w-full min-h-screen flex justify-between items-start relative">
-    <RightSidebarComp />
-    <RouterView />
     <LeftSidebarComp />
+    <RouterView />
+    <RightSidebarComp />
   </div>
 </template>
 
