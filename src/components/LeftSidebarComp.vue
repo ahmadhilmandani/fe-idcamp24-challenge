@@ -1,22 +1,26 @@
 <template>
   <aside
-    class="h-screen flex flex-col justify-between flex-none sticky top-0 bottom-0 left-0 transition-all p-4 border-r border-cust-grey-lighter bg-white overflow-hidden"
-       :class="storeOpenRsidebar.openRSidebar ? 'w-[240px] p-4' : 'w-0 p-0'"
-    >
+    class="h-screen xl:flex flex-col justify-between flex-none overflow-x-hidden bg-white border-r border-cust-grey-lighter  transition-all z-[1000000000000]"
+    :class="storeOpenRsidebar.openRSidebar ? 'xl:w-[240px] p-4 fixed xl:sticky top-0 bottom-0 left-0 right-0 xl:right-auto flex' : 'w-0 p-0 hidden xl:flex'">
 
     <div class="overflow-auto">
-      <h1 class="font-bold text-2xl mb-6">
-        CA<span class="font-bold text-2xl text-cust-orange">MABA</span>
-      </h1>
+      <header class="flex justify-between items-center mb-6">
+        <h1 class="font-bold text-2xl">
+          CA<span class="font-bold text-2xl text-cust-orange">MABA</span>
+        </h1>
+        <span @click="storeOpenRsidebar.toggleRSidebar"
+          class="material-symbols-outlined block xl:hidden hover:cursor-pointer text-cust-redish text-[20px] sm:max-xl:text-3xl xl:text-[20px]">
+          close
+        </span>
+      </header>
 
       <div v-if="route.name === 'tryout-latihan'" class="flex gap-4 flex-wrap justify-center">
         <a :href="`#${value}`" v-for="(value) in testLoop" :key="value"
-          class="rounded-md border border-cust-grey-lighter w-[40px] aspect-square flex justify-center items-center text-cust-black">
+          class="rounded-md border border-cust-grey-lighter w-[40px] xl:w-[40px] sm:w-[80px]  aspect-square flex justify-center items-center text-cust-black">
           {{ value }}
         </a>
         <div class="mt-5 w-full">
-        <ButtonComp :handleClick="() => { storeLogout.openModal() }"
-          styleProp="fill" typeProp="primary">
+          <ButtonComp :handleClick="() => { storeLogout.openModal() }" styleProp="fill" typeProp="primary">
             Selesai
           </ButtonComp>
         </div>
@@ -24,14 +28,14 @@
       <ul v-else>
         <RouterLink to="/dashboard" activeClass="bg-cust-grey-lighter"
           class="flex gap-2 items-center mb-3 pl-[31px] py-2 pr-2 rounded-xl hover:bg-cust-grey-lighter hover:cursor-pointer transition-all">
-          <span class="material-symbols-outlined">
+          <span class="material-symbols-outlined sm:max-xl:text-3xl xl:text-[20px]">
             show_chart
           </span>
           Dashboard
         </RouterLink>
         <RouterLink to="/tryout" activeClass="bg-cust-grey-lighter"
           class="flex gap-2 items-center mb-3 pl-[31px] py-2 pr-2 rounded-xl hover:bg-cust-grey-lighter hover:cursor-pointer transition-all">
-          <span class="material-symbols-outlined">
+          <span class="material-symbols-outlined sm:max-xl:text-3xl xl:text-[20px]">
             category
           </span>
           TryOut
@@ -39,10 +43,10 @@
 
         <li @click="isTestJurusanClicked = !isTestJurusanClicked"
           class="flex gap-2 items-center mb-3 py-2 pr-2 rounded-xl hover:bg-cust-grey-lightest hover:cursor-pointer transition-all">
-          <span class="material-symbols-outlined transition-all" :class="isTestJurusanClicked && 'rotate-90'">
+          <span class="material-symbols-outlined sm:max-xl:text-3xl xl:text-[20px] transition-all" :class="isTestJurusanClicked && 'rotate-90'">
             chevron_right
           </span>
-          <span class="material-symbols-outlined">
+          <span class="material-symbols-outlined sm:max-xl:text-3xl xl:text-[20px]">
             star
           </span>
           <div>

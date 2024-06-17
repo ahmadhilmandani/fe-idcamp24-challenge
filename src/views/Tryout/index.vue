@@ -15,11 +15,11 @@
     <NavbarComp />
     <main class="px-4 pb-4 pt-10">
 
-      <header class="flex justify-between mb-6">
+      <header class="md:flex justify-between mb-6">
         <h1 class="text-base font-bold">
           Tryout
         </h1>
-        <div class="flex gap-2">
+        <div class="flex gap-2 flex-wrap">
           <div class="w-28">
             <ButtonComp styleProp="borderless">
               <span class="material-symbols-outlined text-[18px]">
@@ -55,7 +55,7 @@
               </span>
             </ButtonComp>
             <div v-if="isButtonTambahTryoutClicked"
-              class="w-60 bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4 absolute top-[120%] right-0 shadow-lg">
+              class="w-60 bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4 absolute top-[120%] left-0 xl:left-auto xl:right-0 shadow-lg">
               <RouterLink to="/tryout/latihan" class="mb-4 block hover:font-bold transition-all">
                 Latihan di Web <span class="font-bold">CA<span class="font-bold text-cust-orange">MABA</span></span>
               </RouterLink>
@@ -67,7 +67,7 @@
         </div>
       </header>
 
-      <div class="overflow-auto hidden md:block">
+      <div class="overflow-auto block">
         <table class="w-full">
           <thead class="border-b border-cust-grey-lighter/80 bg-cust-grey-lightest">
             <tr>

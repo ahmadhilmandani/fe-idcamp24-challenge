@@ -8,6 +8,9 @@
     @apply leading-[150%] text-cust-black
   }
   :not(h1,h2,h3,h4,h5,h6){
-    @apply text-sm
+    @apply text-[16px] xl:text-[12px] sm:max-xl:text-2xl
+  }
+  h1{
+    @apply text-[18px] xl:text-[14px] sm:max-xl:text-[26px]
   }
 }

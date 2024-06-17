@@ -11,12 +11,12 @@
     </ButtonComp>
   </ModalComp>
 
-  <div class="basis-full flex-initial">
+  <div class="basis-full flex-initial flex-wrap">
     <NavbarComp />
 
     <main class="px-4 pb-4 pt-10">
 
-      <header class="flex justify-between mb-6">
+      <header class="flex justify-between mb-6 flex-wrap">
         <h1 class="text-base font-bold">
           Dashboard
         </h1>
@@ -42,8 +42,8 @@
         </div>
       </header>
 
-      <div class="flex gap-4 items-stretch mb-4">
-        <div class="w-44">
+      <div class="flex gap-4 items-stretch mb-4 flex-wrap">
+        <div class="w-full xl:w-44">
           <CardComp cardContent="100 Kali">
             <template #label>
               <div class="text-xs">
@@ -82,13 +82,13 @@
         </div>
       </div>
 
-      <div class="flex items-stretch gap-4 mb-4">
+      <div class="flex items-stretch gap-4 mb-4 flex-wrap xl:flex-nowrap">
 
-        <div class="w-[50%]">
-          <div class="flex gap-4">
-            <div class="bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4 ">
-              <div class="text-left mb-2">Tanggal UTBK</div>
-              <div class="flex gap-2">
+        <div class="xl:w-[50%] w-full">
+          <div class="flex gap-4 flex-wrap">
+            <div class="bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4 w-full xl:w-auto">
+              <div class="xl:text-left mb-2 text-center">Tanggal UTBK</div>
+              <div class="flex gap-2 justify-center xl:justify-start">
                 <h2 class="font-bold text-5xl text-cust-orange">21</h2>
                 <div>
                   <div class="font-bold text-cust-blue mb-1">Mei</div>
@@ -123,7 +123,7 @@
           </div>
         </div>
 
-        <div class="w-[50%] bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4">
+        <div class="xl:w-[50%] w-full bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4">
           <div class="flex gap-2 flex-wrap mb-2">
             <h2 class="font-bold mb-2 pr-4 border-r border-cust-black">Jadwal TryOut</h2>
             <span class="text-cust-green text-[10px]">• Selesai</span>
