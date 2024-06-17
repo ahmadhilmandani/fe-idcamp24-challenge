@@ -1,5 +1,5 @@
 <template>
-  <Line class="w-full" id="my-chart-id" :options="chartOptions" :data="chartData" :style="styleChart" />
+  <Line id="my-chart-id" :options="chartOptions" :data="chartData" />
 </template>
 
 <script setup>
@@ -26,8 +26,8 @@ const chartOptions = ref({
   responsive: true
 })
 
-const styleChart = ref({
-  width: `100%`
-})
+// const styleChart = ref({
+//   // width: `100%`
+// })
 
 </script>

@@ -11,7 +11,7 @@
     </ButtonComp>
   </ModalComp>
 
-  <div class="w-full flex-initial">
+  <div class="basis-full flex-initial">
     <NavbarComp />
 
     <main class="px-4 pb-4 pt-10">
@@ -82,10 +82,11 @@
         </div>
       </div>
 
-      <div class="flex gap-4 mb-4">
-        <div>
-          <div class="flex gap-4 w-[500px]">
-            <div class="w-[35%] bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4">
+      <div class="flex items-stretch gap-4 mb-4">
+
+        <div class="w-[50%]">
+          <div class="flex gap-4">
+            <div class="bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4 ">
               <div class="text-left mb-2">Tanggal UTBK</div>
               <div class="flex gap-2">
                 <h2 class="font-bold text-5xl text-cust-orange">21</h2>
@@ -95,9 +96,9 @@
                 </div>
               </div>
             </div>
-            <div class="w-[75%] bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4 ">
+            <div class="bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4 flex-1">
               <h2 class="text-center mb-2 font-bold ">Hitung mundur</h2>
-              <div class="w-full flex justify-between">
+              <div class="flex justify-between">
                 <div>
                   <h2 class="text-2xl">100</h2>
                   <div class="text-center">Hari</div>
@@ -113,7 +114,7 @@
               </div>
             </div>
           </div>
-          <div class="w-[500px] bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4 mt-4">
+          <div class="bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4 mt-4">
             <div class="flex gap-2">
               <h2 class="font-bold mb-2">Statistik Nilai</h2>
               <span class="text-cust-blue underline hover:cursor-pointer">Desember 2024 ▼</span>
@@ -121,7 +122,8 @@
             <BarChartComp />
           </div>
         </div>
-        <div class="flex-1 bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4">
+
+        <div class="w-[50%] bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4">
           <div class="flex gap-2 flex-wrap mb-2">
             <h2 class="font-bold mb-2 pr-4 border-r border-cust-black">Jadwal TryOut</h2>
             <span class="text-cust-green text-[10px]">• Selesai</span>

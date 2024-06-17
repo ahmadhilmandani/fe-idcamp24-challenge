@@ -56,7 +56,7 @@
             </ButtonComp>
             <div v-if="isButtonTambahTryoutClicked"
               class="w-60 bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4 absolute top-[120%] right-0 shadow-lg">
-              <RouterLink to="/1" class="mb-4 block hover:font-bold transition-all">
+              <RouterLink to="/tryout/latihan" class="mb-4 block hover:font-bold transition-all">
                 Latihan di Web <span class="font-bold">CA<span class="font-bold text-cust-orange">MABA</span></span>
               </RouterLink>
               <RouterLink to="/1" class="hover:font-bold transition-all">

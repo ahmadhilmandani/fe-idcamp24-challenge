@@ -47,26 +47,32 @@ const router = createRouter({
       children: [
         {
           path: '/dashboard',
+          name: 'dashboard',
           component: DashboardView,
         },
         {
           path: '/tryout',
+          name: 'tryout-index',
           component: TryoutView,
         },
         {
           path: '/tryout/latihan',
+          name: 'tryout-latihan',
           component: LatihanTryoutView,
         },
         {
           path: '/tryout/tambah',
+          name: 'tryout-tambah',
           component: TambahTryoutView,
         },
         {
           path: '/test-jurusan/kerjakan',
+          name: 'test-jurusan-kerjakan',
           component: KerjakanTestJurusanView,
         },
         {
           path: '/test-jurusan/hasil',
+          name: 'test-jurusan-hasil',
           component: HasilTestJurusanView,
         }
       ]

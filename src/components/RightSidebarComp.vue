@@ -1,20 +1,34 @@
 <template>
   <aside
-    class="w-[240pt] transition-all flex-initial p-4 border-r border-cust-grey-lighter flex flex-col justify-between"
-    :class="storeOpenRsidebar.openRSidebar ? 'block' : 'hidden'">
-    <div>
+    class="h-screen flex flex-col justify-between flex-none sticky top-0 bottom-0 left-0 transition-all p-4 border-r border-cust-grey-lighter bg-white overflow-hidden"
+       :class="storeOpenRsidebar.openRSidebar ? 'w-[240px] p-4' : 'w-0 p-0'"
+    >
+
+    <div class="overflow-auto">
       <h1 class="font-bold text-2xl mb-6">
         CA<span class="font-bold text-2xl text-cust-orange">MABA</span>
       </h1>
 
-      <ul>
+      <div v-if="route.name === 'tryout-latihan'" class="flex gap-4 flex-wrap justify-center">
+        <a :href="`#${value}`" v-for="(value) in testLoop" :key="value"
+          class="rounded-md border border-cust-grey-lighter w-[40px] aspect-square flex justify-center items-center text-cust-black">
+          {{ value }}
+        </a>
+        <div class="mt-5 w-full">
+        <ButtonComp :handleClick="() => { storeLogout.openModal() }"
+          styleProp="fill" typeProp="primary">
+            Selesai
+          </ButtonComp>
+        </div>
+      </div>
+      <ul v-else>
         <RouterLink to="/dashboard" activeClass="bg-cust-grey-lighter"
           class="flex gap-2 items-center mb-3 pl-[31px] py-2 pr-2 rounded-xl hover:bg-cust-grey-lighter hover:cursor-pointer transition-all">
           <span class="material-symbols-outlined">
             show_chart
           </span>
-            Dashboard
-          </RouterLink>
+          Dashboard
+        </RouterLink>
         <RouterLink to="/tryout" activeClass="bg-cust-grey-lighter"
           class="flex gap-2 items-center mb-3 pl-[31px] py-2 pr-2 rounded-xl hover:bg-cust-grey-lighter hover:cursor-pointer transition-all">
           <span class="material-symbols-outlined">
@@ -64,7 +78,8 @@
       </ul>
     </div>
 
-    <ButtonComp :handleClick="()=>{storeLogout.openModal()}" styleProp="fill" typeProp="danger">
+    <ButtonComp v-if="route.name !== 'tryout-latihan'" :handleClick="() => { storeLogout.openModal() }" styleProp="fill"
+      typeProp="danger">
       Keluar
     </ButtonComp>
 
@@ -73,7 +88,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
 import ButtonComp from './global/ButtonComp.vue'
 import { useOpenRSidebar } from '@/stores/openRSidebar'
 import { useLogout } from '@/stores/logoutModal'
@@ -82,5 +97,6 @@ const isTestJurusanClicked = ref(false)
 const storeOpenRsidebar = useOpenRSidebar()
 const storeLogout = useLogout()
 
-
+const route = useRoute()
+const testLoop = ref(30)
 </script>
