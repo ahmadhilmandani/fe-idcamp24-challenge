@@ -11,6 +11,6 @@
     @apply text-[16px] xl:text-[12px] sm:max-xl:text-2xl
   }
   h1{
-    @apply text-[18px] xl:text-[14px] sm:max-xl:text-[26px]
+    @apply text-[18px] xl:text-[14px] sm:max-xl:text-[26px] font-bold
   }
 }

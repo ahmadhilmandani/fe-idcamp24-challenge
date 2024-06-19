@@ -10,6 +10,7 @@ import LatihanTryoutView from '../views/Tryout/Latihan.vue'
 import TambahTryoutView from '../views/Tryout/Tambah.vue'
 
 import KerjakanTestJurusanView from '../views/TestJurusan/Kerjakan.vue'
+import PengerjaanView from '@/views/TestJurusan/Pengerjaan.vue'
 import HasilTestJurusanView from '../views/TestJurusan/Hasil.vue'
 
 import LoginView from '../views/Auth/Login.vue'
@@ -69,6 +70,11 @@ const router = createRouter({
           path: '/test-jurusan/kerjakan',
           name: 'test-jurusan-kerjakan',
           component: KerjakanTestJurusanView,
+        },
+        {
+          path: '/test-jurusan/pengerjaan',
+          name: 'test-jurusan-pengerjaan',
+          component: PengerjaanView,
         },
         {
           path: '/test-jurusan/hasil',

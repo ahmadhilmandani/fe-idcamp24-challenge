@@ -14,7 +14,7 @@
         </span>
       </header>
 
-      <div v-if="route.name === 'tryout-latihan'" class="flex gap-4 flex-wrap justify-center">
+      <div v-if="route.name === 'tryout-latihan' || route.name === 'test-jurusan-pengerjaan'" class="flex gap-4 flex-wrap justify-center">
         <a :href="`#${value}`" v-for="(value) in testLoop" :key="value"
           class="rounded-md border border-cust-grey-lighter w-[40px] xl:w-[40px] sm:w-[80px]  aspect-square flex justify-center items-center text-cust-black">
           {{ value }}
@@ -82,7 +82,7 @@
       </ul>
     </div>
 
-    <ButtonComp v-if="route.name !== 'tryout-latihan'" :handleClick="() => { storeLogout.openModal() }" styleProp="fill"
+    <ButtonComp v-if="route.name !== 'tryout-latihan' && route.name !== 'test-jurusan-pengerjaan'" :handleClick="() => { storeLogout.openModal() }" styleProp="fill"
       typeProp="danger">
       Keluar
     </ButtonComp>

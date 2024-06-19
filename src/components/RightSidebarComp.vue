@@ -5,7 +5,7 @@
     :class="storeOpenLsidebar.openLSidebar ? 'xl:w-[240px] p-4 fixed xl:sticky top-0 bottom-0 left-0 right-0 xl:right-auto flex' : 'w-0 p-0 hidden xl:flex'">
 
 
-    <div v-if="route.name === 'tryout-latihan'" class="flex justify-center items-center w-full h-full p-4 relative">
+    <div v-if="route.name === 'tryout-latihan' || route.name === 'test-jurusan-pengerjaan'" class="flex justify-center items-center w-full h-full p-4 relative">
       <span @click="storeOpenLsidebar.toggleLSidebar"
           class="material-symbols-outlined block xl:hidden hover:cursor-pointer text-cust-redish absolute top-0 right-0 text-[20px] sm:max-xl:text-3xl xl:text-[20px]">
           close
