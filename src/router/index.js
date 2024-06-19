@@ -21,22 +21,22 @@ const router = createRouter({
   routes: [
     {
       path: '/login',
-      name: 'login',
       component: TwoColumnLayout,
       children: [
         {
-          path: '/',
+          path: '',
+          name: 'login',
           component: LoginView
         }
       ]
     },
     {
       path: '/register',
-      name: 'register',
       component: TwoColumnLayout,
       children: [
         {
-          path: '/',
+          path: '',
+          name: 'register',
           component: RegisterView
         }
       ]
