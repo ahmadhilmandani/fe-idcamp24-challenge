@@ -1,27 +1,32 @@
 <template>
-  <div class="flex gap-4 mb-8 items-center">
-    <input type="radio" :name="inputName" :id="inputId" :value="inputValue">
-    <!-- <label for=""></label> -->
-    <label :for="inputId"
-      class="w-[40px] xl:w-[40px] sm:w-[80px] shrink-0 xl:text-xl rounded-md border border-cust-grey-lighter aspect-square flex justify-center items-center text-cust-black">
-      A.
+  <div class="flex mb-8 items-center group">
+    <input @click="(e) => { handleOnClick(e) }" type="radio" :name="inputName" :id="`${optionAlphabet}-${inputName}`"
+      :value="optionAlphabet" class="hidden group-hover:font-bold">
+    <label :for="`${optionAlphabet}-${inputName}`"
+      class="w-[40px] xl:w-[40px] sm:w-[80px] shrink-0 xl:text-xl rounded-md border aspect-square flex justify-center items-center group-hover:bg-cust-grey-lighter group-hover:font-bold group-hover:cursor-pointer transition-all"
+      :class="tryOutQnAStore.tryoutA[inputName - 1] == optionAlphabet ? 'bg-cust-blue-lighter border-cust-blue text-cust-blue font-bold' : 'border-cust-grey-lighter text-cust-black'">
+      {{ optionAlphabet }}
     </label>
-    <div class="xl:text-xl">
-      Dani mendapatkan posisi baru sebagai kepala Divisi Pemasaran di Perusahaan X
-    </div>
+    <label :for="`${optionAlphabet}-${inputName}`"
+      class="block xl:text-xl group-hover:font-bold group-hover:cursor-pointer pl-4 transition-all">
+      <slot></slot>
+    </label>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue';
+import { useTryoutQnA } from '@/stores/tryoutQnA'
 defineProps(
   {
     inputName: String,
-    inputId: String,
-    inputValue: [String, Number],
-    labelContent: String,
-    inputName: String,
+    optionAlphabet: String
   }
 )
+
+const tryOutQnAStore = useTryoutQnA()
+function handleOnClick(e) {
+  tryOutQnAStore.setAnswer((e.target.name - 1), e.target.value)
+}
 
 </script>

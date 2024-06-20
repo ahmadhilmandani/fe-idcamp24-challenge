@@ -14,10 +14,12 @@
         </span>
       </header>
 
-      <div v-if="route.name === 'tryout-latihan' || route.name === 'test-jurusan-pengerjaan'" class="flex gap-4 flex-wrap justify-center">
-        <a :href="`#${value}`" v-for="(value) in testLoop" :key="value"
-          class="rounded-md border border-cust-grey-lighter w-[40px] xl:w-[40px] sm:w-[80px]  aspect-square flex justify-center items-center text-cust-black">
-          {{ value }}
+      <div v-if="route.name === 'tryout-latihan' || route.name === 'test-jurusan-pengerjaan'"
+        class="flex gap-4 flex-wrap justify-center">
+        <a :href="`#${++index}`" v-for="(value, index) in tryoutQnAStroe.tryoutQ" :key="value"
+          class="rounded-md border border-cust-grey-lighter w-[40px] xl:w-[40px] sm:w-[80px]  aspect-square flex justify-center items-center text-cust-black"
+          :class="tryoutQnAStroe.tryoutA[index - 1] != null ? 'bg-cust-blue border-cust-blue text-white font-bold' : 'border-cust-grey-lighter text-cust-black'">
+          {{ index }}
         </a>
         <div class="mt-5 w-full">
           <ButtonComp :handleClick="() => { storeLogout.openModal() }" styleProp="fill" typeProp="primary">
@@ -43,7 +45,8 @@
 
         <li @click="isTestJurusanClicked = !isTestJurusanClicked"
           class="flex gap-2 items-center mb-3 py-2 pr-2 rounded-xl hover:bg-cust-grey-lightest hover:cursor-pointer transition-all">
-          <span class="material-symbols-outlined sm:max-xl:text-3xl xl:text-[20px] transition-all" :class="isTestJurusanClicked && 'rotate-90'">
+          <span class="material-symbols-outlined sm:max-xl:text-3xl xl:text-[20px] transition-all"
+            :class="isTestJurusanClicked && 'rotate-90'">
             chevron_right
           </span>
           <span class="material-symbols-outlined sm:max-xl:text-3xl xl:text-[20px]">
@@ -82,8 +85,8 @@
       </ul>
     </div>
 
-    <ButtonComp v-if="route.name !== 'tryout-latihan' && route.name !== 'test-jurusan-pengerjaan'" :handleClick="() => { storeLogout.openModal() }" styleProp="fill"
-      typeProp="danger">
+    <ButtonComp v-if="route.name !== 'tryout-latihan' && route.name !== 'test-jurusan-pengerjaan'"
+      :handleClick="() => { storeLogout.openModal() }" styleProp="fill" typeProp="danger">
       Keluar
     </ButtonComp>
 
@@ -96,11 +99,12 @@ import { RouterLink, useRoute } from 'vue-router'
 import ButtonComp from './global/ButtonComp.vue'
 import { useOpenRSidebar } from '@/stores/openRSidebar'
 import { useLogout } from '@/stores/logoutModal'
+import { useTryoutQnA } from '@/stores/tryoutQnA'
 
 const isTestJurusanClicked = ref(false)
 const storeOpenRsidebar = useOpenRSidebar()
 const storeLogout = useLogout()
 
 const route = useRoute()
-const testLoop = ref(30)
+const tryoutQnAStroe = useTryoutQnA()
 </script>
