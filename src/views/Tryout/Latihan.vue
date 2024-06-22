@@ -2,7 +2,7 @@
   <div class="w-full flex-initial">
     <NavbarComp />
     <main class="p-4 xl:p-10">
-      <div v-for="(val, index) in tryOutStore.tryoutQ" class="flex gap-4 mb-12">
+      <div v-for="(val, index) in tryOutStore.question" class="flex gap-4 mb-12">
         <h2 :id="++index" class="text-2xl font-bold">
           {{ index }}.
         </h2>
@@ -13,16 +13,16 @@
           <div class="xl:text-xl leading-[150%] mb-4">
             {{ val.questionText }}
           </div>
-          <AnswerComp :inputName="`${index}`" :inputId="A" optionAlphabet="A">
+          <AnswerComp :inputName="`${index}`" :inputId="A" inputValue="A" optionAlphabet="A">
             {{ val.optionA }}
           </AnswerComp>
-          <AnswerComp :inputName="`${index}`" :inputId="B" optionAlphabet="B">
+          <AnswerComp :inputName="`${index}`" :inputId="B" inputValue="B" optionAlphabet="B">
             {{ val.optionB }}
           </AnswerComp>
-          <AnswerComp :inputName="`${index}`" :inputId="C" optionAlphabet="C">
+          <AnswerComp :inputName="`${index}`" :inputId="C" inputValue="C" optionAlphabet="C">
             {{ val.optionC }}
           </AnswerComp>
-          <AnswerComp :inputName="`${index}`" :inputId="D" optionAlphabet="D">
+          <AnswerComp :inputName="`${index}`" :inputId="D" inputValue="D" optionAlphabet="D">
             {{ val.optionD }}
           </AnswerComp>
         </div>
@@ -37,5 +37,5 @@ import AnswerComp from '@/components/Tryout/Latihan/AnswerComp.vue'
 import { useTryoutQnA } from '@/stores/tryoutQnA'
 const tryOutStore = useTryoutQnA()
 tryOutStore.getTryoutQ()
-tryOutStore.setInitA(tryOutStore.tryoutQ.length)
+tryOutStore.setInitA(tryOutStore.question.length)
 </script>

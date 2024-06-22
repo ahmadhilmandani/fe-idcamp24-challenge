@@ -16,9 +16,9 @@
 
       <div v-if="route.name === 'tryout-latihan' || route.name === 'test-jurusan-pengerjaan'"
         class="flex gap-4 flex-wrap justify-center">
-        <a :href="`#${++index}`" v-for="(value, index) in tryoutQnAStroe.tryoutQ" :key="value"
+        <a :href="`#${++index}`" v-for="(value, index) in qnaStore.question" :key="value"
           class="rounded-md border border-cust-grey-lighter w-[40px] xl:w-[40px] sm:w-[80px]  aspect-square flex justify-center items-center text-cust-black"
-          :class="tryoutQnAStroe.tryoutA[index - 1] != null ? 'bg-cust-blue border-cust-blue text-white font-bold' : 'border-cust-grey-lighter text-cust-black'">
+          :class="qnaStore.answer[index - 1] != null ? 'bg-cust-blue border-cust-blue text-white font-bold' : 'border-cust-grey-lighter text-cust-black'">
           {{ index }}
         </a>
         <div class="mt-5 w-full">
@@ -94,12 +94,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onBeforeMount, ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import ButtonComp from './global/ButtonComp.vue'
 import { useOpenRSidebar } from '@/stores/openRSidebar'
 import { useLogout } from '@/stores/logoutModal'
+
 import { useTryoutQnA } from '@/stores/tryoutQnA'
+import { useTestJurusanQnA } from '@/stores/testJurusanQnA'
 
 const isTestJurusanClicked = ref(false)
 const storeOpenRsidebar = useOpenRSidebar()
@@ -107,4 +109,15 @@ const storeLogout = useLogout()
 
 const route = useRoute()
 const tryoutQnAStroe = useTryoutQnA()
+
+let qnaStore
+
+onBeforeMount(() => {
+  if (route.name === 'tryout-latihan') {
+    qnaStore = useTryoutQnA()
+  } else if (route.name === 'test-jurusan-pengerjaan') {
+    qnaStore = useTestJurusanQnA()
+  }
+})
+
 </script>

@@ -2,11 +2,11 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useTryoutQnA = defineStore('TryoutQnA', () => {
-  const tryoutQ = ref(null)
-  const tryoutA = ref([])
+  const question = ref(null)
+  const answer = ref([])
 
   function getTryoutQ() {
-    tryoutQ.value = [
+    question.value = [
       {
         questionText: "Dani dipromosikan untuk mendapat posisi baru di perusahaan X sebagai kepala Divisi Pemasaran atau Sekretaris Direksi.Ternyata Budi terpilih sebagai Sekretaris Direksi di perusahaan X sehingga posisi tersebut telah terisi. Simpulan yang paling tepat adalah…",
         answer: "A",
@@ -62,13 +62,13 @@ export const useTryoutQnA = defineStore('TryoutQnA', () => {
 
   function setInitA(lengthA) {
     for (let index = 0; index < lengthA; index++) {
-      tryoutA.value.push(null)
+      answer.value.push(null)
     }
   }
 
   function setAnswer(indexA, valueA) {
-    tryoutA.value[indexA] = valueA
+    answer.value[indexA] = valueA
   }
 
-  return { tryoutQ, tryoutA, getTryoutQ, setInitA, setAnswer }
+  return { question, answer, getTryoutQ, setInitA, setAnswer }
 }) 

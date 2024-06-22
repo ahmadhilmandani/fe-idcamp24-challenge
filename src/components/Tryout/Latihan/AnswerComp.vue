@@ -1,10 +1,10 @@
 <template>
   <div class="flex mb-8 items-center group">
     <input @click="(e) => { handleOnClick(e) }" type="radio" :name="inputName" :id="`${optionAlphabet}-${inputName}`"
-      :value="optionAlphabet" class="hidden group-hover:font-bold">
+      :value="inputValue" class="hidden group-hover:font-bold">
     <label :for="`${optionAlphabet}-${inputName}`"
       class="w-[40px] xl:w-[40px] sm:w-[80px] shrink-0 xl:text-xl rounded-md border aspect-square flex justify-center items-center group-hover:bg-cust-grey-lighter group-hover:font-bold group-hover:cursor-pointer transition-all"
-      :class="tryOutQnAStore.tryoutA[inputName - 1] == optionAlphabet ? 'bg-cust-blue-lighter border-cust-blue text-cust-blue font-bold' : 'border-cust-grey-lighter text-cust-black'">
+      :class="qnaStore.answer[inputName - 1] == inputValue ? 'bg-cust-blue-lighter border-cust-blue text-cust-blue font-bold' : 'border-cust-grey-lighter text-cust-black'">
       {{ optionAlphabet }}
     </label>
     <label :for="`${optionAlphabet}-${inputName}`"
@@ -15,18 +15,34 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
 import { useTryoutQnA } from '@/stores/tryoutQnA'
+import { useTestJurusanQnA } from '@/stores/testJurusanQnA'
+import { useRoute } from 'vue-router'
+import { onBeforeMount } from 'vue'
+const route = useRoute()
+
 defineProps(
   {
     inputName: String,
-    optionAlphabet: String
+    optionAlphabet: String,
+    inputValue: [String, Boolean]
   }
 )
 
-const tryOutQnAStore = useTryoutQnA()
+let qnaStore
+
+onBeforeMount(() => {
+  if (route.name === 'tryout-latihan') {
+    qnaStore = useTryoutQnA()
+  } else if (route.name === 'test-jurusan-pengerjaan') {
+    qnaStore = useTestJurusanQnA()
+  }
+})
+
+
+
 function handleOnClick(e) {
-  tryOutQnAStore.setAnswer((e.target.name - 1), e.target.value)
+  qnaStore.setAnswer((e.target.name - 1), e.target.value)
 }
 
 </script>
