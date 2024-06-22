@@ -13,16 +13,16 @@
           <div class="xl:text-xl leading-[150%] mb-4">
             {{ val.questionText }}
           </div>
-          <AnswerComp :inputName="`${index}`" :inputId="A" inputValue="A" optionAlphabet="A">
+          <AnswerComp :inputName="`${index}`" inputValue="A" optionAlphabet="A">
             {{ val.optionA }}
           </AnswerComp>
-          <AnswerComp :inputName="`${index}`" :inputId="B" inputValue="B" optionAlphabet="B">
+          <AnswerComp :inputName="`${index}`" inputValue="B" optionAlphabet="B">
             {{ val.optionB }}
           </AnswerComp>
-          <AnswerComp :inputName="`${index}`" :inputId="C" inputValue="C" optionAlphabet="C">
+          <AnswerComp :inputName="`${index}`" inputValue="C" optionAlphabet="C">
             {{ val.optionC }}
           </AnswerComp>
-          <AnswerComp :inputName="`${index}`" :inputId="D" inputValue="D" optionAlphabet="D">
+          <AnswerComp :inputName="`${index}`" inputValue="D" optionAlphabet="D">
             {{ val.optionD }}
           </AnswerComp>
         </div>

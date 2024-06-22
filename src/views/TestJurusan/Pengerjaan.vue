@@ -3,8 +3,8 @@
     <NavbarComp />
     <main class="p-4 xl:p-10">
       <div v-for="(val, index) in testJurusanQnAStore.question" class="flex gap-4 mb-12">
-        <h2 :id="val" class="text-2xl font-bold">
-          {{ ++index }}.
+        <h2 :id="++index" class="text-2xl font-bold">
+          {{ index }}.
         </h2>
         <div>
           <div class="xl:text-xl leading-[150%] mb-4">

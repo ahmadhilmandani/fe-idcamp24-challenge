@@ -94,8 +94,8 @@
 </template>
 
 <script setup>
-import { onBeforeMount, ref } from 'vue'
-import { RouterLink, useRoute } from 'vue-router'
+import { onBeforeMount, onMounted, onUpdated, ref } from 'vue'
+import { RouterLink, onBeforeRouteUpdate, useRoute } from 'vue-router'
 import ButtonComp from './global/ButtonComp.vue'
 import { useOpenRSidebar } from '@/stores/openRSidebar'
 import { useLogout } from '@/stores/logoutModal'
@@ -110,13 +110,17 @@ const storeLogout = useLogout()
 const route = useRoute()
 const tryoutQnAStroe = useTryoutQnA()
 
-let qnaStore
+let qnaStore = ref(route.name === 'tryout-latihan' ? useTryoutQnA() : route.name === 'test-jurusan-pengerjaan' && useTestJurusanQnA())
 
-onBeforeMount(() => {
+console.log(qnaStore)
+
+onUpdated(() => {
   if (route.name === 'tryout-latihan') {
-    qnaStore = useTryoutQnA()
+    console.log('hai 1')
+    qnaStore.value = useTryoutQnA()
   } else if (route.name === 'test-jurusan-pengerjaan') {
-    qnaStore = useTestJurusanQnA()
+    console.log('hai 2')
+    qnaStore.value = useTestJurusanQnA()
   }
 })
 
