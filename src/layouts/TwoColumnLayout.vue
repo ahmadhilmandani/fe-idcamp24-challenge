@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full min-h-screen flex justify-between">
-    <div class="w-[60%] bg-cust-orange flex flex-col justify-between items-center py-36">
+  <div class="w-full min-h-screen block xl:flex justify-between">
+    <div class="w-[60%] bg-cust-orange hidden xl:flex flex-col justify-between items-center py-36">
       <h1 v-if="route.name === 'login'" class="text-6xl text-white font-bold w-[80%] text-center leading-[170%] capitalize">
         aslinya <i class="text-6xl text-white font-bold">Mageran</i>, Tapi Demi PTN impian, kita gaskann!
       </h1>

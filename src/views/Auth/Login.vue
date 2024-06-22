@@ -1,6 +1,6 @@
 <template>
-  <div class="w-[40%] bg-white flex justify-center items-center py-20">
-    <main class="w-[65%] aspect-[4/6] flex flex-col justify-center">
+  <div class="w-full xl:w-[40%] bg-white flex justify-center items-center py-20">
+    <main class="w-[80%] xl:w-[65%] aspect-[4/6] flex flex-col justify-center">
       <h1 class="font-bold text-4xl">
         CA<span class="font-bold text-4xl text-cust-orange">MABA</span>
       </h1>
