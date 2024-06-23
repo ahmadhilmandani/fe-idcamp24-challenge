@@ -59,7 +59,7 @@
               <RouterLink to="/tryout/latihan" class="mb-4 block hover:font-bold transition-all">
                 Latihan di Web <span class="font-bold">CA<span class="font-bold text-cust-orange">MABA</span></span>
               </RouterLink>
-              <RouterLink to="/1" class="hover:font-bold transition-all">
+              <RouterLink to="/tryout/tambah" class="hover:font-bold transition-all">
                 Jadwalkan dari Platform Lain
               </RouterLink>
             </div>
@@ -67,7 +67,7 @@
         </div>
       </header>
 
-      <div class="overflow-auto block">
+      <div class="overflow-auto">
         <table class="w-full">
           <thead class="border-b border-cust-grey-lighter/80 bg-cust-grey-lightest">
             <tr>
@@ -91,7 +91,7 @@
             </tr>
           </thead>
           <tbody class="divide-y divide-cust-grey-lighter/80">
-            <tr v-for="val in dummyFor" :key="val">
+            <tr v-for="(val, index) in dummyFor" :key="val">
               <td class="px-3 py-5 text-gray-700 whitespace-nowrap">
                 <input type="checkbox" name="" id="">
               </td>
@@ -115,10 +115,35 @@
                   • Selesai
                 </BadgeComp>
               </td>
-              <td class="px-3 py-5 text-gray-700 whitespace-nowrap hover:cursor-pointer">
-                <span class="material-symbols-outlined text-[14px]">
+              <td @click="" class="px-3 py-5 text-gray-700 whitespace-nowrap relative scroll-p-8">
+                <label :id="index" @click="(e) => { handleClick(e) }" :for="val"
+                  class="material-symbols-outlined text-[20px] hover:cursor-pointer aspect-auto">
                   more_vert
-                </span>
+                </label>
+                <div v-if="isMoreVertClick == index"
+                  class="bg-cust-grey-lightest w-[140px] py-2 rounded-md border border-cust-grey-lighter absolute top-[80%] right-0 shadow-md z-50">
+                  <RouterLink to="/tryout/latihan"
+                    class="mb-4 flex items-center gap-4 px-6 py-2 w-full hover:bg-cust-grey/40 transition-all">
+                    <span class="material-symbols-outlined text-[18.5px] text-cust-blue">
+                      visibility
+                    </span>
+                    Lihat
+                  </RouterLink>
+                  <RouterLink to="/tryout/latihan"
+                    class="mb-4 flex items-center gap-4 px-6 py-2 w-full hover:bg-cust-grey/40 transition-all">
+                    <span class="material-symbols-outlined text-[18.5px] text-cust-orange">
+                      edit
+                    </span>
+                    Edit
+                  </RouterLink>
+                  <RouterLink to="/tryout/latihan"
+                    class="mb-4 flex items-center gap-4 px-6 py-2 w-full hover:bg-cust-grey/40 transition-all">
+                    <span class="material-symbols-outlined text-[18.5px] text-cust-redish">
+                      delete
+                    </span>
+                    Hapus
+                  </RouterLink>
+                </div>
               </td>
             </tr>
           </tbody>
@@ -139,7 +164,36 @@ import { useLogout } from '@/stores/logoutModal'
 
 const isButtonTambahTryoutClicked = ref(false)
 const storeLogout = useLogout()
-
+const isMoreVertClick = ref(null)
 const dummyFor = ref([1, 2, 3])
-
+const handleClick = (e) => {
+  if (e.target.id == isMoreVertClick.value) {
+    return isMoreVertClick.value = null
+  }
+  return isMoreVertClick.value = e.target.id
+}
 </script>
+
+<style scoped>
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(255, 255, 255);
+  border-radius: 200px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-300;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-neutral-400;
+
+}
+</style>
