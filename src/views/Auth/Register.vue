@@ -5,9 +5,8 @@
       <h1 class="font-bold text-4xl">
         CA<span class="font-bold text-4xl text-cust-orange">MABA</span>
       </h1>
-      <!-- v-model:active="isLoading" -->
       <loading :active="isLoading" opacity="0.85" color="#DD761C" background-color="#1C1C1C" :lock-scroll="true"
-        :is-full-page="fullPage" />
+        :is-full-page="true" />
       <div class="leading-[150%] mt-4 font-semibold text-2xl">Register Sekarang!!!</div>
       <div class="leading-[150%]">Isi form dibawah ini yaa!</div>
 
@@ -185,7 +184,7 @@ import axios from 'axios';
 import { RouterLink, useRouter } from 'vue-router'
 import { ref } from 'vue'
 import Loading from 'vue-loading-overlay'
-import { toast } from 'vue3-toastify';
+import { toast } from 'vue3-toastify'
 
 const isLoading = ref(false)
 const router = useRouter()
@@ -207,10 +206,10 @@ function handleRegister() {
       }
     }
   ).then((response) => {
-    toast.success("Pendaftaran berhasil, silahkan login!");
-    router.push('/login')
+    toast.success("Pendaftaran berhasil, silahkan login!")
+    router.replace('/login')
   }).catch((error) => {
-    toast.error("Pendaftaran belum berhasil, coba lagi...");
+    toast.error("Pendaftaran belum berhasil, coba lagi...")
   }).finally(() => {
     isLoading.value = false
   })
