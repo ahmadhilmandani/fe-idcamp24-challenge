@@ -94,9 +94,12 @@
       <h2 class="font-bold mb-4 text-center">
         2025 jadi Maba
       </h2>
-      <div class="w-[80px] sm:max-xl:w-[200px] aspect-square mx-auto bg-center bg-no-repeat bg-cover rounded-full mb-4"
+      <h2 class="italic font-bold text-4xl text-center leading-[150%]">
+        UPN Veteran Jawa Timur
+      </h2>
+      <!-- <div class="w-[80px] sm:max-xl:w-[200px] aspect-square mx-auto bg-center bg-no-repeat bg-cover rounded-full mb-4"
         :style="`background-image: url(${its})`"></div>
-      <div class="text-cust-grey text-center mb-6 text-[10px]">Institur Teknologi Sepuluh Nopember</div>
+      <div class="text-cust-grey text-center mb-6 text-[10px]">Institur Teknologi Sepuluh Nopember</div> -->
     </div>
   </aside>
 </template>
@@ -111,5 +114,4 @@ import { useOpenLSidebar } from '@/stores/openLSidebar';
 const storeOpenLsidebar = useOpenLSidebar()
 
 const route = useRoute()
-const testLoop = ref(30)
 </script>
