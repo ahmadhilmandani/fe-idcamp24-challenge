@@ -7,6 +7,8 @@ import DashboardView from '../views/Dashboard/index.vue'
 
 import TryoutView from '../views/Tryout/index.vue'
 import LatihanTryoutView from '../views/Tryout/Latihan.vue'
+import LihatTryoutView from '../views/Tryout/Lihat/index.vue'
+import EditTryoutView from '../views/Tryout/Edit/index.vue'
 import TambahTryoutView from '../views/Tryout/Tambah.vue'
 
 import KerjakanTestJurusanView from '../views/TestJurusan/Kerjakan.vue'
@@ -65,6 +67,16 @@ const router = createRouter({
           path: '/tryout/tambah',
           name: 'tryout-tambah',
           component: TambahTryoutView,
+        },
+        {
+          path: '/tryout/lihat/:id',
+          name: 'tryout-lihat',
+          component: LihatTryoutView,
+        },
+        {
+          path: '/tryout/edit/:id',
+          name: 'tryout-edit',
+          component: EditTryoutView,
         },
         {
           path: '/test-jurusan/kerjakan',
