@@ -196,15 +196,14 @@ function handleRegister() {
   isLoading.value = true
   axios.post('http://13.212.182.128:3000/auth/register',
     {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      data: {
-        "email": emailInput.value,
-        "name": usenameInput.value,
-        "password": passwordInput.value
-      }
+      "email": emailInput.value,
+      "name": usenameInput.value,
+      "password": passwordInput.value
+    }, {
+    headers: {
+      'Content-Type': 'application/json'
     }
+  }
   ).then((response) => {
     toast.success("Pendaftaran berhasil, silahkan login!")
     router.replace('/login')

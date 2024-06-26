@@ -8,6 +8,8 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import { updateGlobalOptions } from 'vue3-toastify'
+import "vue3-toastify/dist/index.css"
+
 
 const app = createApp(App)
 
@@ -16,6 +18,7 @@ updateGlobalOptions({
   style: {
     opacity: '1',
     userSelect: 'initial',
+    zIndex: '1000000000000000000000000000000000000'
   },
   clearOnUrlChange: false
 })

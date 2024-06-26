@@ -1,7 +1,7 @@
 <template>
   <div class="w-full xl:w-[40%] bg-white flex justify-center items-center py-20">
     <loading :active="isLoading" opacity="0.85" color="#DD761C" background-color="#1C1C1C" :lock-scroll="true"
-    :is-full-page="true" />
+      :is-full-page="true" />
     <main class="w-[80%] xl:w-[65%] aspect-[4/6] flex flex-col justify-center">
       <h1 class="font-bold text-4xl">
         CA<span class="font-bold text-4xl text-cust-orange">MABA</span>
@@ -34,14 +34,7 @@ import { RouterLink, useRouter } from 'vue-router'
 import { ref } from 'vue'
 import Loading from 'vue-loading-overlay'
 
-import { toast } from "vue3-toastify";
-import "vue3-toastify/dist/index.css";
-
-// toast("Hello! Wow so easy!", {
-//   "theme": "auto",
-//   "type": "default",
-//   "dangerouslyHTMLString": true
-// })
+import { toast } from "vue3-toastify"
 
 const isLoading = ref(false)
 const router = useRouter()
@@ -53,19 +46,19 @@ function handleLogin() {
   isLoading.value = true
   axios.post('http://13.212.182.128:3000/auth/login',
     {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      data: {
-        "email": emailInput.value,
-        "password": passwordInput.value
-      }
+      email: emailInput.value,
+      password: passwordInput.value
+    }, {
+    headers: {
+      'Content-Type': 'application/json'
     }
+  }
   ).then((response) => {
-    toast.success("Pendaftaran berhasil, silahkan login!")
+    localStorage.setItem('token', response.data.access_token)
+    toast.success("Selamat datang, CAMABA!")
     router.replace('/dashboard')
   }).catch((error) => {
-    toast.error("Pendaftaran belum berhasil, coba lagi...")
+    toast.error("Gagal, coba lagi dong...")
   }).finally(() => {
     isLoading.value = false
   })
