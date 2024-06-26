@@ -6,7 +6,7 @@
         Ga jadi deh...
       </ButtonComp>
     </div>
-    <ButtonComp styleProp="fill" typeProp="primary">
+    <ButtonComp :handleClick="handleLogout"  styleProp="fill" typeProp="primary">
       Yakin, nanti mampir lagi, kok!
     </ButtonComp>
   </ModalComp>
@@ -22,8 +22,8 @@
           Deskripsi
         </h2>
         <p>
-          Fitur Tes Jurusan Kuliah merupakan fitur untuk membantu pengguna menemukan jurusan kuliah yang paling sesuai
-          dengan cara menjawab serangkaian pertanyaan dan memasukkan nilai tryout yang telah diperoleh.
+          Fitur Tes Jurusan Kuliah merupakan fitur untuk membantu pengguna menemukan jurusan kuliah yang paling sesuai.
+          Jadi kalau bingung mau masuk jurusan apa, boleh nih dicoba fitur ini...
         </p>
       </div>
       <div class="mt-5">
@@ -31,39 +31,31 @@
           Cara kerja
         </h2>
         <p>
-          Variabel yang digunakan untuk menentukan jurusan dan PTN rekomendasi dari web ini adalah :
+          Nanti ada beberapa pernyataan, nah dari pertanyaan tersebut jawabannya ada 4, kamu pilih satu aja yang paling
+          sesuai sama kamu. 4 jawaban tersebut adalah:
         </p>
         <ul class="list-decimal list-inside">
           <li>
-            Nilai TryOut
+            Setuju
           </li>
           <li>
-            Hasil dari test kepribadian
+            Kurang Setuju
+          </li>
+          <li>
+            Tidak Setuju
+          </li>
+          <li>
+            Sangat Tidak Setuju
           </li>
         </ul>
-        <p class="mt-3 mb-3">Dari dua variabel tersebut, akan dihitung menggunakan rumus berikut...</p>
-          <i class="text-center block text-xl">X = (Y + Z) / A </i>
-        <div class="mt-3">
-          Lalu akan disesuaikan dengan passing grade terbaru dari universitas yang didapatkan dari data
-          <RouterLink to="" class="underline text-cust-orange">di sini</RouterLink>
-          Sehingga nanti akan didapatkan 3 rekomendasi jurusan dan universitas yang paling sesuai
-        </div>
+        <p class="mt-3 mb-3">Dari jawaban tersebut, nanti akan diketahui jurusan yang sesai sama kamu tuh apa</p>
       </div>
       <div class="mt-5">
         <h2 class="font-bold mb-2">
-          Rujukan pembuatan test
+          Rujukan pembuatan test bisa dilihat <a
+            href="https://d1wqtxts1xzle7.cloudfront.net/77867329/154-libre.pdf?1641083684=&response-content-disposition=inline%3B+filename%3DSistem_Pakar_Untuk_Menentukan_Jurusan_Ku.pdf&Expires=1719246271&Signature=bIxfoxQpPsjYh2~tksGFrMcTgtDvEbGbZIf7sKWPHFb0bvuemo--hpwdd3hKJamJfx8SuKMm7JbDUK-9-Yg-SzbO~oyCGSlLfMLRET0R9U52-nGjBOkeJCPrZUmYVO--HMExOhgxXijplfv-TVkpJTodDQU1PJf~jiKR267Uc43Krve3UM-ZkisZEGhGBJHgbNaV4fUgo5nE3SkWw3xzam8sD3gbg0ox1qnrIe2xcIQ~cKSUAhBdoLK~xkNI6ohHk-pH2ZxIIlX2cfy6brPby1rQXmAYl3E1WhaIim-lYovOwzENxHFzmkB613r7F2cn3MLCNCyBc93Gi1IFZvwnyw__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA"
+            target="_blank" class="underline text-cust-blue">di sini</a>
         </h2>
-        <ul>
-          <li>
-            pertanyaan kepribadian: <a href="" class="underline text-cust-blue">https://tailwindcss.com/docs/accent-color</a>
-          </li>
-          <li>
-            daftar passing grade universitas: <a href="" class="underline text-cust-blue">https://tailwindcss.com/docs/accent-color</a>
-          </li>
-          <li>
-            rumus perhitungan: <a href="" class="underline text-cust-blue">https://tailwindcss.com/docs/accent-color</a>
-          </li>
-        </ul>
       </div>
       <div class="my-10">
         <h2 class="font-bold mb-2 text-cust-redish">
@@ -75,7 +67,7 @@
         </p>
       </div>
       <div class="w-80 mx-auto">
-        <ButtonComp styleProp="fill" typeProp="primary" :handleClick="()=>{router.push('/test-jurusan/pengerjaan')}">
+        <ButtonComp styleProp="fill" typeProp="primary" :handleClick="() => { router.push('/test-jurusan/pengerjaan') }">
           Kerjakan Test Sekarang!
         </ButtonComp>
       </div>
@@ -87,7 +79,12 @@
 import NavbarComp from '@/components/NavbarComp.vue'
 import ButtonComp from '@/components/global/ButtonComp.vue'
 import { useLogout } from '@/stores/logoutModal'
-import {useRouter} from 'vue-router'
+import { useRouter } from 'vue-router'
 const storeLogout = useLogout()
 const router = useRouter()
+
+const handleLogout = () => {
+  localStorage.removeItem('token')
+  router.replace('/login')
+}
 </script>

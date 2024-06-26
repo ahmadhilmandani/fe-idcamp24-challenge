@@ -6,7 +6,7 @@
         Ga jadi deh...
       </ButtonComp>
     </div>
-    <ButtonComp styleProp="fill" typeProp="primary">
+    <ButtonComp :handleClick="handleLogout" styleProp="fill" typeProp="primary">
       Yakin, nanti mampir lagi, kok!
     </ButtonComp>
   </ModalComp>
@@ -20,7 +20,7 @@
         <h1 class="text-base font-bold">
           Dashboard
         </h1>
-        <div class="w-48 relative">
+        <div class="w-52 relative">
           <ButtonComp :handleClick="() => {
             isButtonTambahTryoutClicked = !isButtonTambahTryoutClicked
           }" typeProp="primary" styleProp="fill">
@@ -142,7 +142,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 
 
 import CardComp from '@/components/Dashboard/CardComp.vue'
@@ -152,10 +152,15 @@ import ButtonComp from '@/components/global/ButtonComp.vue'
 import ModalComp from '@/components/global/ModalComp.vue'
 import { useLogout } from '@/stores/logoutModal'
 
-
+const router = useRouter()
 const date = ref(new Date())
 const storeLogout = useLogout()
 
 const isButtonTambahTryoutClicked = ref(false)
+
+const handleLogout = () => {
+  localStorage.removeItem('token')
+  router.replace('/login')
+}
 
 </script>

@@ -94,8 +94,8 @@
 </template>
 
 <script setup>
-import { onBeforeMount, onMounted, onUpdated, ref } from 'vue'
-import { RouterLink, onBeforeRouteUpdate, useRoute } from 'vue-router'
+import { onUpdated, ref } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
 import ButtonComp from './global/ButtonComp.vue'
 import { useOpenRSidebar } from '@/stores/openRSidebar'
 import { useLogout } from '@/stores/logoutModal'
@@ -108,20 +108,39 @@ const storeOpenRsidebar = useOpenRSidebar()
 const storeLogout = useLogout()
 
 const route = useRoute()
-const tryoutQnAStroe = useTryoutQnA()
 
 let qnaStore = ref(route.name === 'tryout-latihan' ? useTryoutQnA() : route.name === 'test-jurusan-pengerjaan' && useTestJurusanQnA())
 
-console.log(qnaStore)
-
 onUpdated(() => {
   if (route.name === 'tryout-latihan') {
-    console.log('hai 1')
     qnaStore.value = useTryoutQnA()
   } else if (route.name === 'test-jurusan-pengerjaan') {
-    console.log('hai 2')
     qnaStore.value = useTestJurusanQnA()
   }
 })
 
 </script>
+
+<style scoped>
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(242, 242, 242);
+  border-radius: 200px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-300/50;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-neutral-300;
+
+}
+</style>

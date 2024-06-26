@@ -6,7 +6,7 @@
         Ga jadi deh...
       </ButtonComp>
     </div>
-    <ButtonComp styleProp="fill" typeProp="primary">
+    <ButtonComp :handleClick="handleLogout" styleProp="fill" typeProp="primary">
       Yakin, nanti mampir lagi, kok!
     </ButtonComp>
   </ModalComp>
@@ -43,12 +43,13 @@
 
       <div class="mt-5">
         <label for="" class="block mb-1">Platform melakukan Tryout (opsional)</label>
-        <input type="text" placeholder="Platform yang digunakan agar tidak lupa contoh: Applikasi pahamify / tautan web tryout "
+        <input type="text"
+          placeholder="Platform yang digunakan agar tidak lupa contoh: Applikasi pahamify / tautan web tryout "
           class="border rounded-md w-full p-3 focus:outline-none focus:border-cust-orange focus:ring-cust-orange focus:ring-1">
       </div>
 
       <div class="mt-12">
-        <ButtonComp styleProp="fill" typeProp="primary">
+        <ButtonComp :handleClick="handleAddTryout" styleProp="fill" typeProp="primary">
           Jadwalkan TryOut +
         </ButtonComp>
       </div>
@@ -62,6 +63,48 @@ import NavbarComp from '@/components/NavbarComp.vue'
 import ButtonComp from '@/components/global/ButtonComp.vue'
 import { useLogout } from '@/stores/logoutModal'
 import { RouterLink } from 'vue-router'
+import { ref } from 'vue'
+import axios from 'axios'
+import { toast } from 'vue3-toastify'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 const storeLogout = useLogout()
+const isLoading = ref(false)
+
+const handleLogout = () => {
+  localStorage.removeItem('token')
+  router.replace('/login')
+}
+
+function handleAddTryout() {
+  console.log(localStorage.getItem('token'))
+  console.log(typeof localStorage.getItem('token'))
+  isLoading.value = true
+  axios.post('http://13.212.182.128:3000/tryout',
+    {
+      "startDate": "2024-06-25T16:13:41.630Z",
+      "organizer": "string",
+      "platform": "Edureka",
+      "status": "Mendatang"
+    },
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      }
+    }
+  ).then((response) => {
+    console.log(response)
+    toast.success("Tryout Berhasil didaftarkan")
+    router.replace('/tryout')
+  }).catch((error) => {
+    toast.error("Coba lagi")
+    console.log(error)
+  }).finally(() => {
+    isLoading.value = false
+  })
+}
 
 </script>
