@@ -1,7 +1,7 @@
 <template>
 
   <aside
-    class="h-screen xl:flex flex-col justify-between flex-none overflow-x-hidden bg-white border-l border-cust-grey-lighter  transition-all z-[1000000000000]"
+    class="h-screen xl:flex flex-col justify-between flex-none overflow-x-hidden bg-white border-l border-cust-grey-lighter  transition-all z-[100000000]"
     :class="storeOpenLsidebar.openLSidebar ? 'xl:w-[240px] p-4 fixed xl:sticky top-0 bottom-0 left-0 right-0 xl:right-auto flex' : 'w-0 p-0 hidden xl:flex'">
 
 
