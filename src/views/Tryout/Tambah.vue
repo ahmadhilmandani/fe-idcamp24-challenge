@@ -79,8 +79,6 @@ const handleLogout = () => {
 }
 
 function handleAddTryout() {
-  console.log(localStorage.getItem('token'))
-  console.log(typeof localStorage.getItem('token'))
   isLoading.value = true
   axios.post('http://13.212.182.128:3000/tryout',
     {
