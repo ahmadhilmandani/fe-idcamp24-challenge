@@ -6,7 +6,7 @@
         Ga jadi deh...
       </ButtonComp>
     </div>
-    <ButtonComp styleProp="fill" typeProp="primary">
+    <ButtonComp :handleClick="handleLogout" styleProp="fill" typeProp="primary">
       Yakin, nanti mampir lagi, kok!
     </ButtonComp>
   </ModalComp>
@@ -44,7 +44,7 @@
               Download
             </ButtonComp>
           </div>
-          <div class="w-48 relative">
+          <div class="w-52 relative">
             <ButtonComp typeProp="primary" styleProp="fill" :handleClick="() => {
               isButtonTambahTryoutClicked = !isButtonTambahTryoutClicked
             }">
@@ -122,14 +122,14 @@
                 </label>
                 <div v-if="isMoreVertClick == index"
                   class="bg-cust-grey-lightest w-[140px] py-2 rounded-md border border-cust-grey-lighter absolute top-[80%] right-0 shadow-md z-50">
-                  <RouterLink to="/tryout/latihan"
+                  <RouterLink :to="`/tryout/lihat/${index}`"
                     class="mb-4 flex items-center gap-4 px-6 py-2 w-full hover:bg-cust-grey/40 transition-all">
                     <span class="material-symbols-outlined text-[18.5px] text-cust-blue">
                       visibility
                     </span>
                     Lihat
                   </RouterLink>
-                  <RouterLink to="/tryout/latihan"
+                  <RouterLink :to="`/tryout/edit/${index}`"
                     class="mb-4 flex items-center gap-4 px-6 py-2 w-full hover:bg-cust-grey/40 transition-all">
                     <span class="material-symbols-outlined text-[18.5px] text-cust-orange">
                       edit
@@ -154,14 +154,17 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 import NavbarComp from '@/components/NavbarComp.vue'
 import ButtonComp from '@/components/global/ButtonComp.vue'
 import ModalComp from '@/components/global/ModalComp.vue'
 import BadgeComp from '@/components/global/BadgeComp.vue'
 import { useLogout } from '@/stores/logoutModal'
+import { useRoute } from 'vue-router'
+import axios from 'axios'
 
+const isLoading = ref(true)
 const isButtonTambahTryoutClicked = ref(false)
 const storeLogout = useLogout()
 const isMoreVertClick = ref(null)
@@ -172,6 +175,33 @@ const handleClick = (e) => {
   }
   return isMoreVertClick.value = e.target.id
 }
+
+const handleLogout = () => {
+  localStorage.removeItem('token')
+  router.replace('/login')
+}
+
+onMounted(() => {
+  axios.get('http://13.212.182.128:3000/history-tryout',
+    {
+      "startDate": "2024-06-25T16:13:41.630Z",
+      "organizer": "string",
+      "platform": "string",
+      "status": "string"
+    }, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    }
+  }
+  ).then((response) => {
+    console.log(response)
+  }).catch((error) => {
+    console.log(error)
+  }).finally(() => {
+    isLoading.value = false
+  })
+})
 </script>
 
 <style scoped>
