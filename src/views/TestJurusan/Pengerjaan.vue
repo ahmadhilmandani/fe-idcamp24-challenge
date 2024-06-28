@@ -73,7 +73,6 @@ import { useTestJurusanQnA } from '@/stores/testJurusanQnA'
 import ModalComp from '@/components/global/ModalComp.vue'
 import { useLogout } from '@/stores/logoutModal'
 import ButtonComp from '@/components/global/ButtonComp.vue'
-
 const storeLogout = useLogout()
 const testJurusanQnAStore = useTestJurusanQnA()
 
