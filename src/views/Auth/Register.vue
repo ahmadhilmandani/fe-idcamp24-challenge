@@ -11,8 +11,13 @@
       <div class="leading-[150%]">Isi form dibawah ini yaa!</div>
 
       <div class="mt-8">
-        <label for="" class="block mb-1">Nama</label>
-        <input type="text" v-model="usenameInput"
+        <div class="flex flex-wrap gap-2 mb-1">
+          <label for="" class="block font-bold">Nama</label>
+          <div v-for="error of v$.usernameInput.$errors">
+            <small class="text-cust-redish">{{ error.$message }}</small>
+          </div>
+        </div>
+        <input type="text" v-model="form.usernameInput"
           class="border rounded-md w-full p-3 focus:outline-none focus:border-cust-orange focus:ring-cust-orange focus:ring-1">
       </div>
 
@@ -122,19 +127,34 @@
       </div> -->
 
       <div class="mt-3">
-        <label for="" class="block mb-1">Email</label>
-        <input type="email" v-model="emailInput"
+        <div class="flex flex-wrap gap-2 mb-1">
+          <label for="" class="block font-bold">Email</label>
+          <div v-for="error of v$.emailInput.$errors">
+            <small class="text-cust-redish">{{ error.$message }}</small>
+          </div>
+        </div>
+        <input type="email" v-model="form.emailInput"
           class="border rounded-md w-full p-3 focus:outline-none focus:border-cust-orange focus:ring-cust-orange focus:ring-1">
       </div>
 
       <div class="mt-3">
-        <label for="" class="block mb-1">Password</label>
-        <input type="password" v-model="passwordInput"
+        <div class="flex flex-wrap gap-2 mb-1">
+          <label for="" class="block font-bold">Password</label>
+          <div v-for="error of v$.passwordInput.$errors">
+            <small class="text-cust-redish">{{ error.$message }}</small>
+          </div>
+        </div>
+        <input type="password" v-model="form.passwordInput"
           class="border rounded-md w-full p-3 focus:outline-none focus:border-cust-orange focus:ring-cust-orange focus:ring-1">
       </div>
 
       <div class="mt-3 mb-8">
-        <label for="" class="bloc mb-1">Ulangi Password</label>
+        <div class="flex flex-wrap gap-2 mb-1">
+          <label for="" class="block font-bold">Ulangi Password</label>
+          <div v-for="error of v$.passwordInput.$errors">
+            <small class="text-cust-redish">{{ error.$message }}</small>
+          </div>
+        </div>
         <input type="password"
           class="border rounded-md w-full p-3 focus:outline-none focus:border-cust-orange focus:ring-cust-orange focus:ring-1">
       </div>
@@ -153,6 +173,9 @@
 </template>
 
 <script setup>
+import useVuelidate from '@vuelidate/core'
+import { email, required } from '@vuelidate/validators'
+
 import ButtonComp from '@/components/global/ButtonComp.vue'
 import axios from 'axios';
 import { RouterLink, useRouter } from 'vue-router'
@@ -161,31 +184,47 @@ import Loading from 'vue-loading-overlay'
 import { toast } from 'vue3-toastify'
 
 const isLoading = ref(false)
-const router = useRouter()
-const emailInput = ref(null)
-const usenameInput = ref(null)
-const passwordInput = ref(null)
+const form = ref({
+  emailInput: '',
+  usernameInput: '',
+  passwordInput: ''
+})
 
-function handleRegister() {
-  isLoading.value = true
-  axios.post('http://13.212.182.128:3000/auth/register',
-    {
-      "email": emailInput.value,
-      "name": usenameInput.value,
-      "password": passwordInput.value
-    }, {
-    headers: {
-      'Content-Type': 'application/json'
+const router = useRouter()
+
+const rules = {
+  emailInput: { required, email }, // Matches state.firstName
+  usernameInput: { required },
+  passwordInput: { required }
+}
+
+const v$ = useVuelidate(rules, form)
+v$.value.$touch()
+
+async function handleRegister() {
+  v$.value.$touch()
+  if (!v$.value.$invalid) {  
+    axios.post('http://13.212.182.128:3000/auth/register',
+      {
+        "email": form.value.emailInput,
+        "name": form.value.usernameInput,
+        "password": form.value.passwordInput
+      }, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
     }
-  }
-  ).then((response) => {
-    toast.success("Pendaftaran berhasil, silahkan login!")
-    router.replace('/login')
-  }).catch((error) => {
-    toast.error("Pendaftaran belum berhasil, coba lagi...")
-  }).finally(() => {
+    ).then((response) => {
+      toast.success("Pendaftaran berhasil, silahkan login!")
+      router.replace('/login')
+    }).catch((error) => {
+      toast.error("Pendaftaran belum berhasil, coba lagi...")
+    }).finally(() => {
+      isLoading.value = false
+    })
     isLoading.value = false
-  })
+
+}
 
 }
 </script>
