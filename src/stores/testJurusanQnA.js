@@ -217,7 +217,6 @@ export const useTestJurusanQnA = defineStore('testJurusanQnA', () => {
   }
 
   function getFinalResult(indexResult) {
-    console.log(indexResult)
     for (let i = 0; i < indexResult.length; i++) {
       finalResult.value.push(indexResult[i])
     }

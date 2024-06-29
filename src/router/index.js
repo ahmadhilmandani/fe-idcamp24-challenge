@@ -18,6 +18,8 @@ import HasilTestJurusanView from '../views/TestJurusan/Hasil.vue'
 import LoginView from '../views/Auth/Login.vue'
 import RegisterView from '../views/Auth/Register.vue'
 import NotFoundView from '../views/NotFoundView.vue'
+import ProfileView from '../views/Profile/Index.vue'
+import EditProfileView from '../views/Profile/Edit/Index.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,9 +47,20 @@ const router = createRouter({
       ]
     },
     {
+      path: '/profile',
+      name: 'profile',
+      component: ProfileView,
+    },
+    {
+      path: '/profile/edit/:id',
+      name: 'profile-edit',
+      component: EditProfileView,
+    },
+    {
       path: '/',
       component: ThreeColumLayout,
       children: [
+
         {
           path: '/dashboard',
           name: 'dashboard',

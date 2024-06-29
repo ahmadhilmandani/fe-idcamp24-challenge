@@ -59,6 +59,7 @@ const rules = {
 const v$ = useVuelidate(rules, { emailInput, passwordInput })
 v$.value.$touch()
 
+
 function handleLogin() {
   v$.value.$touch()
   if (!v$.value.$invalid) {
@@ -74,6 +75,7 @@ function handleLogin() {
     }
     ).then((response) => {
       localStorage.setItem('token', response.data.access_token)
+      localStorage.setItem('userId', response.data.data.id)
       toast.success("Selamat datang, CAMABA!")
       router.replace('/dashboard')
     }).catch((error) => {
