@@ -69,19 +69,6 @@
             </div>
           </RouterLink>
         </li>
-
-        <li v-if="isTestJurusanClicked">
-          <RouterLink activeClass="bg-cust-grey-lighter" to="/test-jurusan/hasil"
-            class="flex w-full gap-2 items-center mb-3 pl-[31px] py-2 pr-2 rounded-xl hover:bg-cust-grey-lighter hover:cursor-pointer transition-all">
-            <div class="w-[24px] text-center text-2xl">
-              •
-            </div>
-            <div>
-              Hasil
-            </div>
-          </RouterLink>
-        </li>
-
       </ul>
     </div>
 

@@ -11,25 +11,53 @@
     </ButtonComp>
   </ModalComp>
 
+  <div v-if="!openFilter" class="fixed bottom-14 right-0 left-0 flex justify-center">
+    <div class="bg-white rounded-xl shadow-lg p-12 w-[480px] border">
+      <h3 class="font-bold mb-4 text-lg flex justify-between">
+        Filter Tryout
+        <span @click="()=>{openFilter = !openFilter}" class="material-symbols-outlined text-cust-redish hover:cursor-pointer">
+              close
+            </span>
+      </h3>
+
+      <div class="mb-4">
+        <div class="flex flex-wrap gap-2 mb-2">
+          <label for="" class="block">Dari Tanggal</label>
+        </div>
+        <input type="date" v-model="activeFilter.startDate"
+          class="border rounded-md w-full p-3 focus:outline-none focus:border-cust-orange focus:ring-cust-orange focus:ring-1">
+      </div>
+
+      <div class="mb-4">
+
+        <div class="flex flex-wrap gap-2 mb-2">
+          <label for="" class="block">Nilai lebih besar dari</label>
+        </div>
+        <input type="number" v-model="activeFilter.rangeScore"
+          class="border rounded-md w-full p-3 focus:outline-none focus:border-cust-orange focus:ring-cust-orange focus:ring-1">
+      </div>
+      <!-- <div class="mb-4">
+
+        <div class="flex flex-wrap gap-2 mb-2">
+          <label for="" class="block">Status</label>
+        </div>
+        <input type="date" v-model="utbkDate"
+          class="border rounded-md w-full p-3 focus:outline-none focus:border-cust-orange focus:ring-cust-orange focus:ring-1">
+      </div> -->
+    </div>
+  </div>
+
   <div class="w-full flex-initial">
     <NavbarComp />
     <main class="px-4 pb-4 pt-10">
 
-      <header class="md:flex justify-between mb-6">
+      <header class="md:flex justify-between mb-3">
         <h1 class="text-base font-bold">
           Tryout
         </h1>
         <div class="flex gap-2 flex-wrap">
           <div class="w-28">
-            <ButtonComp styleProp="borderless">
-              <span class="material-symbols-outlined text-[18px]">
-                delete
-              </span>
-              Hapus
-            </ButtonComp>
-          </div>
-          <div class="w-28">
-            <ButtonComp styleProp="borderless">
+            <ButtonComp :handleClick="() => { openFilter = !openFilter }" styleProp="borderless">
               <span class="material-symbols-outlined text-[18px]">
                 filter_list
               </span>
@@ -44,7 +72,7 @@
               Download
             </ButtonComp>
           </div>
-          <div class="w-52 relative">
+          <div class="w-52 relative z-[100]">
             <ButtonComp typeProp="primary" styleProp="fill" :handleClick="() => {
               isButtonTambahTryoutClicked = !isButtonTambahTryoutClicked
             }">
@@ -56,67 +84,75 @@
             </ButtonComp>
             <div v-if="isButtonTambahTryoutClicked"
               class="w-60 bg-cust-grey-lightest border border-cust-grey-lighter rounded-md p-4 absolute top-[120%] left-0 xl:left-auto xl:right-0 shadow-lg">
-              <RouterLink to="/tryout/latihan" class="mb-4 block hover:font-bold transition-all">
-                Latihan di Web <span class="font-bold">CA<span class="font-bold text-cust-orange">MABA</span></span>
+              <RouterLink to="/tryout/tambah" class="hover:font-bold transition-all mb-4 block">
+                Jadwalkan Tryout
               </RouterLink>
-              <RouterLink to="/tryout/tambah" class="hover:font-bold transition-all">
-                Jadwalkan dari Platform Lain
-              </RouterLink>
+              <a href="https://drive.google.com/drive/folders/108SRwn1Xt1rVV8aV_IR4ubA275A3-8CW" target="_blank"
+                class="block hover:font-bold transition-all">
+                Lihat kumpulan contoh soal
+              </a>
             </div>
           </div>
         </div>
       </header>
 
+      <div class=" mb-6">
+        <div>Menampilkan: {{ filteredData.length }} data</div>
+        <div v-for="valOfFilter in activeFilter">
+          <div v-if="valOfFilter"
+            class="rounded-full bg-cust-grey-lightest w-fit text-[10px] mt-2 py-2 px-6 flex gap-2 items-center">
+            {{ valOfFilter }}
+            <span @click="storeOpenLsidebar.toggleLSidebar" class="material-symbols-outlined text-[10px]">
+              close
+            </span>
+          </div>
+
+        </div>
+      </div>
+
       <div class="overflow-auto">
         <table class="w-full">
           <thead class="border-b border-cust-grey-lighter/80 bg-cust-grey-lightest">
             <tr>
-              <th class="w-10 px-3 py-5 font-semibold tracking-wide text-left">
-                <input type="checkbox" name="" id="">
-              </th>
               <th class="w-[100px] px-3 py-5 font-semibold tracking-wide text-left flex items-center">Tanggal
-                <span class="material-symbols-outlined text-base">
-                  arrow_downward
-                </span>
               </th>
-              <th class="w-[100px] px-3 py-5 font-semibold tracking-wide text-left">Jam</th>
+              <!-- <th class="w-[100px] px-3 py-5 font-semibold tracking-wide text-left">Jam</th> -->
               <th class="px-3 py-5 font-semibold tracking-wide text-left">Penyelenggara</th>
               <th class="px-3 py-5 font-semibold tracking-wide text-left">Platform Pengerjaan</th>
-              <th class="w-[50px] px-3 py-5 font-semibold tracking-wide text-left flex items-center">Nilai <span
+              <th class="w-[50px] px-3 py-5 font-semibold tracking-wide text-left flex items-center">Nilai
+                <!-- <span
                   class="material-symbols-outlined  text-base">
                   arrow_downward
-                </span></th>
+                </span> -->
+              </th>
               <th class="w-24 px-3 py-5 font-semibold tracking-wide text-left">Status</th>
               <th class="w-16 px-3 py-5 font-semibold tracking-wide text-left text-white">:</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-cust-grey-lighter/80">
-            <tr v-for="(val, index) in dummyFor" :key="val">
+            <tr v-for="(val, index) in filteredData" :key="val">
               <td class="px-3 py-5 text-gray-700 whitespace-nowrap">
-                <input type="checkbox" name="" id="">
+                {{ moment(val.startDate).format('D MMMM YYYY') }}
               </td>
-              <td class="px-3 py-5 text-gray-700 whitespace-nowrap">
-                10 Aug 24
-              </td>
-              <td class="px-3 py-5 text-gray-700 whitespace-nowrap">
+              <!-- <td class="px-3 py-5 text-gray-700 whitespace-nowrap">
                 13:00 WIB
+              </td> -->
+              <td class="px-3 py-5 text-gray-700 whitespace-nowrap">
+                {{ val.organizer }}
               </td>
               <td class="px-3 py-5 text-gray-700 whitespace-nowrap">
-                Pahamify
+                {{ val.platform }}
               </td>
               <td class="px-3 py-5 text-gray-700 whitespace-nowrap">
-                https://pahamify.com
-              </td>
-              <td class="px-3 py-5 text-gray-700 whitespace-nowrap">
-                500
+                {{ val.score }}
               </td>
               <td class="px-3 py-5 text-gray-700 whitespace-nowrap">
                 <BadgeComp styleProp="fill" typeProp="success">
-                  • Selesai
+                  • {{ val.status }}
                 </BadgeComp>
               </td>
               <td @click="" class="px-3 py-5 text-gray-700 whitespace-nowrap relative scroll-p-8">
-                <label :id="index" @click="(e) => { handleClick(e) }" :for="val"
+                <label :id="index" @click="(e) => { handleClick(e) }" :for="index"
                   class="material-symbols-outlined text-[20px] hover:cursor-pointer aspect-auto">
                   more_vert
                 </label>
@@ -154,21 +190,94 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 
 import NavbarComp from '@/components/NavbarComp.vue'
 import ButtonComp from '@/components/global/ButtonComp.vue'
 import ModalComp from '@/components/global/ModalComp.vue'
 import BadgeComp from '@/components/global/BadgeComp.vue'
 import { useLogout } from '@/stores/logoutModal'
-import { useRoute } from 'vue-router'
 import axios from 'axios'
+import moment from 'moment';
+import 'moment/locale/id';
 
 const isLoading = ref(true)
 const isButtonTambahTryoutClicked = ref(false)
 const storeLogout = useLogout()
 const isMoreVertClick = ref(null)
-const dummyFor = ref([1, 2, 3])
+const openFilter = ref(false)
+
+const activeFilter = ref({
+  startDate: null,
+  endDate: null,
+  rangeScore: null,
+  status: null,
+})
+
+const filteredData = computed(() => {
+  let tempt = null
+
+  if (activeFilter.value.startDate) {
+    tempt = dummyData.value.filter((val) => {
+      console.log(val)
+      return moment(val.startDate) >= moment(activeFilter.value.startDate)
+    })
+  }
+
+  if (activeFilter.value.rangeScore) {
+    if (tempt == null) {
+      tempt = dummyData.value.filter((val) => {
+        return val.score >= activeFilter.value.rangeScore
+      })
+    } else {
+      tempt = tempt.filter((val) => {
+        return val.score >= activeFilter.value.rangeScore
+      })
+    }
+  }
+
+  if (activeFilter.value.status) {
+    if (tempt == null) {
+      tempt = dummyData.value.filter((val) => {
+        return val.status == activeFilter.value.status
+      })
+    } else {
+      tempt = tempt.filter((val) => {
+        return val.status == activeFilter.value.status
+      })
+    }
+  }
+
+  if (tempt == null) {
+    tempt = dummyData.value
+  }
+
+  return tempt
+
+})
+const dummyData = ref([
+  {
+    startDate: "2024-07-29T15:13:29.402Z",
+    organizer: "pahamify",
+    platform: "https://pahamify.com",
+    status: "Selesai",
+    score: 410
+  },
+  {
+    startDate: "2024-06-29T15:13:29.402Z",
+    organizer: "pahamify",
+    platform: "https://pahamify.com",
+    status: "Selesai",
+    score: 540
+  },
+  {
+    startDate: "2024-09-29T15:13:29.402Z",
+    organizer: "pahamify",
+    platform: "https://pahamify.com",
+    status: "Mendatang",
+    score: 430
+  }
+])
 const handleClick = (e) => {
   if (e.target.id == isMoreVertClick.value) {
     return isMoreVertClick.value = null
