@@ -1,6 +1,4 @@
 import './assets/main.css'
-import VCalendar from 'v-calendar'
-import 'v-calendar/style.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -25,6 +23,5 @@ updateGlobalOptions({
 
 app.use(createPinia())
 app.use(router)
-app.use(VCalendar, {})
 
 app.mount('#app')

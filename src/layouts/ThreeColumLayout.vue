@@ -12,6 +12,4 @@ import { RouterView } from 'vue-router'
 import RightSidebarComp from '@/components/RightSidebarComp.vue'
 import LeftSidebarComp from '@/components/LeftSidebarComp.vue'
 
-
-
 </script>

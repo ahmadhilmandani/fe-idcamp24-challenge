@@ -68,7 +68,7 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import NavbarComp from '@/components/NavbarComp.vue'
-import AnswerComp from '@/components/Tryout/Latihan/AnswerComp.vue'
+import AnswerComp from '@/components//AnswerComp.vue'
 import { useTestJurusanQnA } from '@/stores/testJurusanQnA'
 import ModalComp from '@/components/global/ModalComp.vue'
 import { useLogout } from '@/stores/logoutModal'
@@ -80,11 +80,6 @@ testJurusanQnAStore.getTestJurusanQ()
 testJurusanQnAStore.setInitA(testJurusanQnAStore.question.length)
 
 const router = useRouter()
-
-const handleLogout = () => {
-  localStorage.removeItem('token')
-  router.replace('/login')
-}
 
 const calculateIntelligence = (startIndex, endIndex) => {
   let tempt = 0
