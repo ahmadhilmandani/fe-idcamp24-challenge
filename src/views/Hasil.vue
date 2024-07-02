@@ -23,16 +23,10 @@
 
         </div>
 
-        <div class="max-w-[500pxx] w-full xl:flex gap-4 justify-center">
-          <div class=" w-full xl:w-fit">
-            <ButtonComp :handle-click="() => {
-              router.replace('/')
-            }" type-prop="secondary" style-prop="outline">
-              <div class="py-2 text-cust-orange">
-                Balik ke Beranda!
-              </div>
-            </ButtonComp>
-          </div>
+        <div class="max-w-[500px] w-full xl:flex gap-4 justify-center">
+          <a href="/" class="xl:w-fit border border-cust-orange text-cust-orange hover:bg-cust-orange-lighter flex justify-center items-center rounded-xl gap-2 w-full text-center px-6 py-4 font-semibold">
+            Balik ke Beranda!
+          </a>
           <div class=" w-full xl:w-fit mt-5 xl:mt-0">
             <ButtonComp type-prop="primary" style-prop="fill">
               <div class="py-2 text-white">
