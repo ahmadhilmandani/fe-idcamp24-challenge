@@ -7,7 +7,7 @@ import TestJurusanNote from '@/views/TestJurusanNote.vue'
 import BTSSystem from '@/views/BTSSystem.vue'
 import KerjakanTestJurusanView from '../views/TestJurusan/Kerjakan.vue'
 import PengerjaanView from '@/views/TestJurusan/Pengerjaan.vue'
-import HasilTestJurusanView from '../views/TestJurusan/Hasil.vue'
+import HasilTestJurusanView from '../views/Hasil.vue'
 
 import NotFoundView from '../views/NotFoundView.vue'
 
@@ -43,7 +43,7 @@ const router = createRouter({
     {
       path: '/test-jurusan/hasil',
       name: 'test-jurusan-hasil',
-      component: LandingPage
+      component: HasilTestJurusanView
     },
     {
       path: '/:pathMatch(.*)*',

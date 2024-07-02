@@ -12,7 +12,7 @@
       </ButtonComp>
     </ModalComp>
 
-    <div v-if="testJurusanQnAStore.finalResult.length != 0"
+    <!-- <div v-if="testJurusanQnAStore.finalResult.length != 0"
       class="fixed top-0 h-screen left-0 right-0 flex justify-center items-center bg-opacity-20 bg-cust-black z-[1000000000000000000]">
       <div class="w-[600px] bg-white border rounded-xl p-12">
         <p class="text-center mb-5">
@@ -35,7 +35,7 @@
           </ButtonComp>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <NavbarComp />
     <main class="p-4 xl:p-10">
@@ -118,5 +118,7 @@ const handleJurusanRecomendation = () => {
     }
   )
   testJurusanQnAStore.getFinalResult(tempt)
+
+  router.replace('/test-jurusan/hasil')
 }
 </script>
