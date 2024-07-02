@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="route.name === 'test-jurusan-pengerjaan'" class="w-full flex justify-between items-center border-b border-cust-grey-lighter p-4">
+  <nav v-if="route.name === 'test-jurusan-pengerjaan'" class="w-full flex justify-between items-center border-b border-cust-grey-lighter p-4 fixed z-50 bg-white">
     <div class="flex gap-2 items-center">
       <div @click="storeOpenRsidebar.toggleRSidebar"
         class="material-symbols-outlined transition-all hover:text-cust-blue hover:cursor-pointer text-[20px] sm:max-xl:text-3xl xl:text-[20px]">
@@ -9,7 +9,7 @@
         Pengerjaan Test Rekomendasi Jurusan
       </RouterLink>
     </div>
-    <div class="flex gap-2 items-center">
+    <!-- <div class="flex gap-2 items-center">
       <div class="xl:hidden block lg:text-xl">
         100m 60d
       </div>
@@ -20,7 +20,7 @@
         class="material-symbols-outlined transition-all hover:text-cust-blue hover:cursor-pointer text-[20px] sm:max-xl:text-3xl xl:text-[20px]">
         dock_to_left
       </div>
-    </div>
+    </div> -->
   </nav>
 
   <nav v-else

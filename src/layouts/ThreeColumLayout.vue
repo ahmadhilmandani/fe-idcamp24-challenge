@@ -2,7 +2,6 @@
   <div class="w-full min-h-screen xl:flex justify-between items-start relative">
     <LeftSidebarComp />
     <RouterView />
-    <RightSidebarComp />
   </div>
 </template>
 
