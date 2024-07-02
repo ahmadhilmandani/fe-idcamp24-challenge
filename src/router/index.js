@@ -3,6 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LandingPage from '@/views/LandingPage.vue'
 import ThreeColumLayout from '../layouts/ThreeColumLayout.vue'
 
+import TestJurusanNote from '@/views/TestJurusanNote.vue'
+import BTSSystem from '@/views/BTSSystem.vue'
 import KerjakanTestJurusanView from '../views/TestJurusan/Kerjakan.vue'
 import PengerjaanView from '@/views/TestJurusan/Pengerjaan.vue'
 import HasilTestJurusanView from '../views/TestJurusan/Hasil.vue'
@@ -16,6 +18,16 @@ const router = createRouter({
       path: '/',
       name: 'landing-page',
       component: LandingPage
+    },
+    {
+      path: '/test-jurusan/note',
+      name: 'test-jurusan-note',
+      component: TestJurusanNote
+    },
+    {
+      path: '/test-jurusan/behind-the-scene',
+      name: 'test-jurusan-bts',
+      component: BTSSystem
     },
     {
       path: '/test-jurusan',

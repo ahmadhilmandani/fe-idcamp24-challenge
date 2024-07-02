@@ -26,7 +26,7 @@
           </p>
           <div class="flex gap-4">
             <div class="w-fit mt-6">
-              <ButtonComp :handle-click="() => { router.replace('/test-jurusan/pengerjaan') }" style-prop="fill"
+              <ButtonComp :handle-click="() => { router.replace('/test-jurusan/note') }" style-prop="fill"
                 type-prop="primary">
                 <div class="text-[18px] text-white font-bold px-2 py-1">
                   Wah kalau gitu harus gas!
@@ -34,7 +34,7 @@
               </ButtonComp>
             </div>
             <div class="w-fit mt-6">
-              <ButtonComp style-prop="outline" type-prop="secondary">
+              <ButtonComp :handle-click="()=>{router.push('/test-jurusan/behind-the-scene')}" style-prop="outline" type-prop="secondary">
                 <div class="text-[18px] text-cust-orange font-bold px-2 py-1">
                   Cek cara kerja web!
                 </div>
