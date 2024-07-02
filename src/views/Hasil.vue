@@ -1,19 +1,19 @@
 <template>
   <div>
     <NavbarComp />
-    <main class="w-full min-h-screen bg-cust-orange-lightest flex justify-center items-center px-16">
+    <main class="w-full min-h-screen bg-cust-orange-lightest flex justify-center items-center px-16 py-32">
       <div class="max-w-[600px] w-full flex flex-col items-center">
         <h1 class="text-[40px] text-center">
           Wah lu Tipikal Orang yang...
         </h1>
 
         <div class="bg-white shadow-lg rounded-xl px-6 py-8 mt-10 mb-20 max-w-[320px] w-full border">
-          <div v-for="finalResult in storeTestJurusanQnA.finalResult">
+          <div v-for="finalResult in storeTestJurusanQnA.finalResult" class="mb-6">
             <h1>
               {{ storeTestJurusanQnA.arrIntelegence[finalResult].type }}
             </h1>
 
-            <h2 class="text-cust-orange/80 mt-3 mb-1">
+            <h2 class="text-cust-orange/80 mt-2 mb-1">
               Jurusan yang cocok tuh..
             </h2>
             <ul class="list-inside list-disc">

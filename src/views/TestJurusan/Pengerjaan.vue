@@ -92,21 +92,32 @@ const calculateIntelligence = (startIndex, endIndex) => {
 const handleJurusanRecomendation = () => {
   storeLogout.closedModal()
   const arrScoreIntelligence = []
+
   const linguisticVerbal = calculateIntelligence(0, 12)
   arrScoreIntelligence.push(linguisticVerbal)
+
   const logicMath = calculateIntelligence(12, 24)
   arrScoreIntelligence.push(logicMath)
-  const ritmikMusic = calculateIntelligence(24, 36)
+
+  const SpasialVisual = calculateIntelligence(24, 36)
+  arrScoreIntelligence.push(SpasialVisual) 
+
+  const ritmikMusic = calculateIntelligence(36, 48)
   arrScoreIntelligence.push(ritmikMusic)
-  const kinestetik = calculateIntelligence(36, 48)
+
+  const kinestetik = calculateIntelligence(48, 60)
   arrScoreIntelligence.push(kinestetik)
-  const interpersonal = calculateIntelligence(48, 60)
+
+  const interpersonal = calculateIntelligence(60, 72)
   arrScoreIntelligence.push(interpersonal)
-  const intrapersonal = calculateIntelligence(60, 72)
+
+  const intrapersonal = calculateIntelligence(72, 84)
   arrScoreIntelligence.push(intrapersonal)
-  const naturalis = calculateIntelligence(72, 84)
+
+  const naturalis = calculateIntelligence(84, 96)
   arrScoreIntelligence.push(naturalis)
-  const eksistensial = calculateIntelligence(98, 108)
+  
+  const eksistensial = calculateIntelligence(96, 108)
   arrScoreIntelligence.push(eksistensial)
 
   let tempt = []
