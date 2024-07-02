@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+import LandingPage from '@/views/LandingPage.vue'
 import ThreeColumLayout from '../layouts/ThreeColumLayout.vue'
 
 import KerjakanTestJurusanView from '../views/TestJurusan/Kerjakan.vue'
@@ -13,14 +14,24 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'landing-page',
+      component: LandingPage
+    },
+    {
+      path: '/test-jurusan',
       component: ThreeColumLayout,
       children: [
         {
-          path: '/',
+          path: 'pengerjaan',
           name: 'test-jurusan-pengerjaan',
           component: PengerjaanView
         }
       ]
+    },
+    {
+      path: '/test-jurusan/hasil',
+      name: 'test-jurusan-hasil',
+      component: LandingPage
     },
     {
       path: '/:pathMatch(.*)*',

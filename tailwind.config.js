@@ -7,12 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        "cust-black": "#1C1C1C",
+        "cust-black": "#38333A",
         "cust-grey": "#9F9F9F",
         "cust-grey-lighter": "#D8D8D8",
         "cust-grey-lightest": "#F6F6F6",
-        "cust-orange": "#DD761C",
+        "cust-orange": "#FF9500",
         "cust-orange-lighter": "#FFF7EF",
+        "cust-orange-lightest": "#FFFCF8",
         "cust-redish": "#C73659",
         "cust-redish-lighter": "#FCF0F5",
         "cust-blue": "#0B93DF",
