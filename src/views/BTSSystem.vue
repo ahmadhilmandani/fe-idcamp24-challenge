@@ -1,9 +1,9 @@
 <template>
   <div>
     <NavbarComp />
-    <main class="w-full min-h-screen bg-cust-orange-lightest flex justify-center items-center px-16">
-      <div class="max-w-[600px] w-full flex flex-col pt-32 mb-12">
-        <h1 class="text-[48px] text-center">
+    <main class="w-full min-h-screen bg-cust-orange-lightest flex justify-center items-center px-4 xl:px-16">
+      <div class="max-w-[680px] w-full flex flex-col pt-32 mb-12">
+        <h1 class="text-center">
           Behind The Scene
         </h1>
 
@@ -41,12 +41,10 @@
           </ul>
           <p class="mt-3 mb-3">Dari jawaban tersebut, nanti akan diketahui jurusan yang sesai</p>
         </div>
-        <div class="mt-5">
-          <h2 class="font-bold mb-2">
+        <div class="mt-5 font-bold mb-2">
             Rujukan pembuatan test bisa dilihat <a
               href="https://download.garuda.kemdikbud.go.id/article.php?article=957186&val=14716&title=Sistem%20Pakar%20Untuk%20Menentukan%20Jurusan%20Kuliah%20Berdasarkan%20Minat%20dan%20Bakat%20Siswa%20SMA%20Dengan%20Menggunakan%20Metode%20Forward%20Chaining"
               target="_blank" class="underline text-cust-blue">di sini</a>
-          </h2>
         </div>
         <div class="mt-10">
           <h2 class="font-bold mb-2 text-cust-redish">
@@ -68,7 +66,7 @@
               router.replace('/test-jurusan/pengerjaan')
             }
           }" :type-prop="isNoted ? 'primary' : 'muted'" style-prop="fill">
-            <div class="py-2 text-[16px]" :class="isNoted ? 'text-white' : 'text-cust-grey cursor-not-allowed'">
+            <div class="py-2 " :class="isNoted ? 'text-white' : 'text-cust-grey cursor-not-allowed'">
               {{ !isNoted ? 'baca dulu terus kasih centang kalau paham' : 'Gas Mulai Testnya!' }}
             </div>
           </ButtonComp>

@@ -5,12 +5,25 @@
 @layer base {
   * {
     font-family: "Inter", sans-serif;
-    @apply leading-[150%] text-cust-black
+    @apply leading-[150%] text-cust-black;
   }
-  :not(h1,h2,h3,h4,h5,h6){
-    @apply text-[16px] xl:text-[12px] sm:max-xl:text-2xl
+  :not(h1, h2, h3, h4, h5, h6) {
+    @apply text-[16px] xl:text-[12px] sm:max-xl:text-[24px];
   }
-  h1{
-    @apply text-[18px] xl:text-[14px] sm:max-xl:text-[26px] font-bold
+
+  h1 {
+    @apply text-[32px] xl:text-[24px] sm:max-xl:text-[72px] font-bold;
+  }
+
+  h2 {
+    @apply text-[24px] xl:text-[20px] sm:max-xl:text-[60px] font-bold;
+  }
+
+  h3 {
+    @apply text-[20px] xl:text-[16px] sm:max-xl:text-[48px] font-bold;
+  }
+
+  .custom-heading-1 {
+    @apply xl:text-[56px] text-[40px] sm:max-xl:text-[80px] font-bold;
   }
 }

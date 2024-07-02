@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="route.name === 'test-jurusan-pengerjaan'" class="w-full flex justify-between items-center border-b border-cust-grey-lighter p-4 fixed z-50 bg-white">
+  <nav v-if="route.name === 'test-jurusan-pengerjaan'" class="w-full flex justify-between items-center border-b border-cust-grey-lighter px-4 xl:px-16 py-6 fixed top-0 z-50 bg-white">
     <div class="flex gap-2 items-center">
       <div @click="storeOpenRsidebar.toggleRSidebar"
         class="material-symbols-outlined transition-all hover:text-cust-blue hover:cursor-pointer text-[20px] sm:max-xl:text-3xl xl:text-[20px]">
@@ -24,14 +24,14 @@
   </nav>
 
   <nav v-else
-    class="w-full flex justify-between items-center px-16 py-6 fixed top-0 left-0 right-0 bg-cust-orange-lightest">
-    <h1 class="font-bold text-3xl">
-      CA<span class="font-bold text-3xl text-cust-orange">MABA</span>
-    </h1>
+    class="w-full flex justify-between items-center px-4 xl:px-16 py-6 fixed top-0 left-0 right-0 bg-cust-orange-lightest z-50">
+    <h3>
+      CA<h3 class="inline font-bold text-cust-orange">MABA</h3>
+    </h3>
 
     <a class="block w-fit" href="https://download.garuda.kemdikbud.go.id/article.php?article=957186&val=14716&title=Sistem%20Pakar%20Untuk%20Menentukan%20Jurusan%20Kuliah%20Berdasarkan%20Minat%20dan%20Bakat%20Siswa%20SMA%20Dengan%20Menggunakan%20Metode%20Forward%20Chaining" target="_blank">
       <ButtonComp style-prop="outline" type-prop="secondary">
-        <div class="text-[15px] text-cust-orange font-bold px-2 py-1">
+        <div class="text-[12px] sm:text-[24px] xl:text-[15px] text-cust-orange font-bold xl:px-2 xl:py-1">
           Jurnal referensi
         </div>
       </ButtonComp>

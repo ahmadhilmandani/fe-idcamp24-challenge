@@ -38,7 +38,7 @@
     </div> -->
 
     <NavbarComp />
-    <main class="p-4 xl:p-10 my-16">
+    <main class="px-4 py-10 xl:p-10 my-16">
       <div v-for="(val, index) in testJurusanQnAStore.question" class="flex gap-4 mb-12">
         <h2 :id="++index" class="text-2xl font-bold">
           {{ index }}.
