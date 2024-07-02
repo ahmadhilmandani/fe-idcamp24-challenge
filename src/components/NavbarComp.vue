@@ -29,7 +29,7 @@
       CA<span class="font-bold text-3xl text-cust-orange">MABA</span>
     </h1>
 
-    <a class="block w-fit" href="https://jurnal.mdp.ac.id/index.php/jatisi/article/download/1069/390/" target="_blank">
+    <a class="block w-fit" href="https://download.garuda.kemdikbud.go.id/article.php?article=957186&val=14716&title=Sistem%20Pakar%20Untuk%20Menentukan%20Jurusan%20Kuliah%20Berdasarkan%20Minat%20dan%20Bakat%20Siswa%20SMA%20Dengan%20Menggunakan%20Metode%20Forward%20Chaining" target="_blank">
       <ButtonComp style-prop="outline" type-prop="secondary">
         <div class="text-[15px] text-cust-orange font-bold px-2 py-1">
           Jurnal referensi

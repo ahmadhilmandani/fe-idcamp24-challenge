@@ -44,7 +44,7 @@
         <div class="mt-5">
           <h2 class="font-bold mb-2">
             Rujukan pembuatan test bisa dilihat <a
-              href="https://d1wqtxts1xzle7.cloudfront.net/77867329/154-libre.pdf?1641083684=&response-content-disposition=inline%3B+filename%3DSistem_Pakar_Untuk_Menentukan_Jurusan_Ku.pdf&Expires=1719246271&Signature=bIxfoxQpPsjYh2~tksGFrMcTgtDvEbGbZIf7sKWPHFb0bvuemo--hpwdd3hKJamJfx8SuKMm7JbDUK-9-Yg-SzbO~oyCGSlLfMLRET0R9U52-nGjBOkeJCPrZUmYVO--HMExOhgxXijplfv-TVkpJTodDQU1PJf~jiKR267Uc43Krve3UM-ZkisZEGhGBJHgbNaV4fUgo5nE3SkWw3xzam8sD3gbg0ox1qnrIe2xcIQ~cKSUAhBdoLK~xkNI6ohHk-pH2ZxIIlX2cfy6brPby1rQXmAYl3E1WhaIim-lYovOwzENxHFzmkB613r7F2cn3MLCNCyBc93Gi1IFZvwnyw__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA"
+              href="https://download.garuda.kemdikbud.go.id/article.php?article=957186&val=14716&title=Sistem%20Pakar%20Untuk%20Menentukan%20Jurusan%20Kuliah%20Berdasarkan%20Minat%20dan%20Bakat%20Siswa%20SMA%20Dengan%20Menggunakan%20Metode%20Forward%20Chaining"
               target="_blank" class="underline text-cust-blue">di sini</a>
           </h2>
         </div>

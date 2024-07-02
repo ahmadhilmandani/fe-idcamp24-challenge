@@ -46,7 +46,7 @@
             Mulyani, E. D. S., Hidayat, C. R., & Ulfa, T. C. (2021). Sistem Pakar Untuk Menentukan Jurusan Kuliah
             Berdasarkan Minat dan Bakat Siswa SMA Dengan Menggunakan Metode Forward Chaining. CSRID (Computer Science
             Research and Its Development Journal), 10(2), 80. <a
-              href="https://jurnal.mdp.ac.id/index.php/jatisi/article/download/1069/390/" target="_blank"
+              href="https://download.garuda.kemdikbud.go.id/article.php?article=957186&val=14716&title=Sistem%20Pakar%20Untuk%20Menentukan%20Jurusan%20Kuliah%20Berdasarkan%20Minat%20dan%20Bakat%20Siswa%20SMA%20Dengan%20Menggunakan%20Metode%20Forward%20Chaining" target="_blank"
               class="text-cust-blue underline text-[10px]">https://doi.org/10.22303/csrid.10.2.2018.80-92</a>
           </p>
         </div>
