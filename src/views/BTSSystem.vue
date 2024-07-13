@@ -12,8 +12,8 @@
             Deskripsi
           </h2>
           <p>
-            Web ini diperuntukan membantu pengguna menemukan jurusan kuliah yang paling
-            sesuai. Jadi kalau bingung mau masuk jurusan apa, sabi nih dicoba wkwk
+            Web ini diperuntukkan membantu pengguna menemukan jurusan kuliah yang paling
+            sesuai. Jadi kalau bingung mau masuk jurusan apa, <i>sabi</i> nih dicoba <i>wkwk</i>
           </p>
         </div>
         <div class="mt-5">
@@ -39,7 +39,7 @@
               Sangat Tidak Setuju
             </li>
           </ul>
-          <p class="mt-3 mb-3">Dari jawaban tersebut, nanti akan diketahui jurusan yang sesai</p>
+          <p class="mt-3 mb-3">Dari jawaban tersebut, nanti akan diketahui jurusan yang sesuai</p>
         </div>
         <div class="mt-5 font-bold mb-2">
             Rujukan pembuatan test bisa dilihat <a
@@ -51,8 +51,8 @@
             Catatan Penting!
           </h2>
           <p>
-            Fitur ini <strong> dibangun sebagai pendukung keputusan. Hasil dari test ini tidak untuk pedoman utama dalam
-              memilih jurusan dan PTN. </strong>
+            Fitur ini <strong> dibangun sebagai pendukung keputusan. Hasil dari test ini tidak untuk dijadikan pedoman utama dalam
+              memilih jurusan. </strong>
           </p>
         </div>
         <div class="flex gap-4 mt-6 mb-14">

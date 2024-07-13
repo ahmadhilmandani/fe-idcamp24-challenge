@@ -8,7 +8,7 @@
         </h1>
 
         <p class="text-center  mt-8">
-          Web ini dibagnun untuk pendukung keputsuan. Hasil dari rekomendasi tidak untuk pedoman utama dalam memilih
+          Web ini dibagnun sebagai pendukung keputusan. Hasil dari rekomendasi tidak untuk dijadikan pedoman utama dalam memilih
           jurusan
         </p>
 

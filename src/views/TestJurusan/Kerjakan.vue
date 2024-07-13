@@ -48,7 +48,7 @@
             Sangat Tidak Setuju
           </li>
         </ul>
-        <p class="mt-3 mb-3">Dari jawaban tersebut, nanti akan diketahui jurusan yang sesai sama kamu tuh apa</p>
+        <p class="mt-3 mb-3">Dari jawaban tersebut, nanti akan diketahui jurusan yang sesuai sama kamu tuh apa</p>
       </div>
       <div class="mt-5">
         <h2 class="font-bold mb-2">
