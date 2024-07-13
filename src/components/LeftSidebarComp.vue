@@ -38,11 +38,18 @@ import { useOpenRSidebar } from '@/stores/openRSidebar'
 import { useLogout } from '@/stores/logoutModal'
 
 import { useTestJurusanQnA } from '@/stores/testJurusanQnA'
+import { onMounted } from 'vue';
 
 const storeOpenRsidebar = useOpenRSidebar()
 const storeLogout = useLogout()
 
 
+
+onMounted(() => {
+  if (window.innerWidth < 1024) {
+    storeOpenRsidebar.openRSidebar = false
+  }
+})
 let qnaStore = useTestJurusanQnA()
 
 </script>
